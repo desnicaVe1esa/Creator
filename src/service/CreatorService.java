@@ -15,10 +15,7 @@ import java.util.stream.Stream;
  * Создает папки с названием задачи, папки с названиями ЯП, на которых ее можно решить
  */
 
-public class Creator {
-
-    public Creator() {
-    }
+public class CreatorService {
 
     /**
      * Запуск скрипта
