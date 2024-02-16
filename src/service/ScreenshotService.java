@@ -25,6 +25,7 @@ public class ScreenshotService {
         options.addArguments("--start-fullscreen");
         WebDriver driver = new ChromeDriver(options);
         driver.get("https://www.codewars.com/kata/596ef174e4cab6813600004d/train/java");
+        //Пауза для прогрузки страницы
         TimeUnit.SECONDS.sleep(2);
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
