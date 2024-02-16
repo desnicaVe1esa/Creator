@@ -1,5 +1,6 @@
 package util;
 
+
 /**
  * Класс для разработки и тестирования будущего функционала
  */
@@ -7,6 +8,7 @@ package util;
 public class DevClass {
 
     public static void main(String[] args) {
+
 
     }
 }
