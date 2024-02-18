@@ -109,7 +109,7 @@ public class CreatorService {
      */
     public void preparedCode (String screenshot, File folder, String language) {
         String screenshotData = ScreenshotService.preparedData(screenshot + language);
-
+        //TODO получить стартовый код из screenshotData 'Solution' и 'SampleTests'
         File solutionClass = new File(folder, "");
         try {
             FileWriter createCode = new FileWriter(solutionClass);
@@ -187,7 +187,7 @@ public class CreatorService {
 //    }
 //
 //    public String codeCreator(String objectType, String kyu, String title) {
-//        //TODO получить стартовый код из инпутов 'Solution' и 'SampleTests' я хуй знает как
+//
 //        String kyuDigit = String.valueOf(kyu.charAt(0));
 //        switch (objectType) {
 //            case "java" -> {
