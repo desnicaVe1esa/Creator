@@ -18,15 +18,20 @@ import java.util.concurrent.TimeUnit;
 
 public class ScreenshotService {
 
-    public static void main(String[] args) throws InterruptedException, TesseractException {
+    public static String preparedData(String url) {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("force-device-scale-factor=1");
         options.addArguments("--start-maximized");
         options.addArguments("--start-fullscreen");
         WebDriver driver = new ChromeDriver(options);
-        driver.get("https://www.codewars.com/kata/596ef174e4cab6813600004d/train/java");
+        driver.get(url);
+
         //Пауза для прогрузки страницы
-        TimeUnit.SECONDS.sleep(2);
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(scrFile, new File("C:\\Users\\seera\\IdeaProjects\\Creator\\screen\\task.png"));
@@ -34,16 +39,20 @@ public class ScreenshotService {
             e.printStackTrace();
         }
         driver.quit();
-        String test = ScreenshotService.takeTextFromPicture("C:\\Users\\seera\\IdeaProjects\\Creator\\screen\\task.png");
-        System.out.println(test);
+        return ScreenshotService.takeTextFromPicture("C:\\Users\\seera\\IdeaProjects\\Creator\\screen\\task.png");
     }
 
-    public static String takeTextFromPicture(String path) throws TesseractException {
+    public static String takeTextFromPicture(String path) {
         File image = new File(path);
-        ITesseract tesseract = new Tesseract();
+        ITesseract readTextFromImage = new Tesseract();
+
         //Путь к файлу eng.traineddata для чтения английского текста
         //Ссылка для скачивания скана нужного языка: https://github.com/tesseract-ocr/tessdata/blob/main/eng.traineddata
-        tesseract.setDatapath("C:\\Users\\seera\\IdeaProjects\\Creator\\src\\util");
-        return tesseract.doOCR(image);
+        readTextFromImage.setDatapath("C:\\Users\\seera\\IdeaProjects\\Creator\\src\\util");
+        try {
+            return readTextFromImage.doOCR(image);
+        } catch (TesseractException e) {
+            return e.getMessage();
+        }
     }
 }
