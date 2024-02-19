@@ -8,8 +8,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.apache.commons.io.FileUtils;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -18,28 +21,40 @@ import java.util.concurrent.TimeUnit;
 
 public class ScreenshotService {
 
-    public static String preparedData(String url) {
+    public static String preparedData(String url, String language) {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("force-device-scale-factor=1");
         options.addArguments("--start-maximized");
         options.addArguments("--start-fullscreen");
         WebDriver driver = new ChromeDriver(options);
-        driver.get(url);
+        driver.get(url + language);
+
+        //Для получения только правой части экрана
+        WebElement element = driver.findElement(By.tagName("body"));
+        Rectangle rect = element.getRect();
 
         //Пауза для прогрузки страницы
         try {
-            TimeUnit.SECONDS.sleep(2);
+            TimeUnit.SECONDS.sleep(3);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(scrFile, new File("C:\\Users\\seera\\IdeaProjects\\Creator\\screen\\task.png"));
+            //Скрин полного экрана
+//            FileUtils.copyFile(scrFile, new File("C:\\Users\\seera\\IdeaProjects\\Creator\\screen\\" + language + ".png"));
+            //Скрин правой части экрана
+            BufferedImage fullImg = ImageIO.read(scrFile);
+            BufferedImage rightPart = fullImg.getSubimage(rect.getWidth() / 2, 0, rect.getWidth() / 2, rect.getHeight());
+            ImageIO.write(Objects.equals(language, "groovy")
+                    || Objects.equals(language, "\bjavascript\b") ?
+                    fullImg : rightPart, "png",
+                    new File("C:\\Users\\seera\\IdeaProjects\\Creator\\screen\\" + language + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
         driver.quit();
-        return ScreenshotService.takeTextFromPicture("C:\\Users\\seera\\IdeaProjects\\Creator\\screen\\task.png");
+        return ScreenshotService.takeTextFromPicture("C:\\Users\\seera\\IdeaProjects\\Creator\\screen\\" + language + ".png");
     }
 
     public static String takeTextFromPicture(String path) {
