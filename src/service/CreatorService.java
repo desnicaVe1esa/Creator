@@ -60,7 +60,7 @@ public class CreatorService {
                 f.contains("java") ||
                         f.contains("javascript") ||
                         f.contains("groovy") ||
-                        //Манипуляция со строкой "javascript" используется для нормальной работы switch case,
+                        //Манипуляция со строкой "javascript" используется для нормальной работы условных выражений,
                         //когда в задаче имеется "java" и "javascript" в одном селекте.
                         //Без этой манипуляции инициативу выбора всегда будет перехватывать "java"
                         f.contains("sql")).map(m -> m.replace("javascript", "js")).toList();

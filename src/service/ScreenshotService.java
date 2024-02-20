@@ -26,7 +26,7 @@ public class ScreenshotService {
         options.addArguments("--start-fullscreen");
         WebDriver driver = new ChromeDriver(options);
 
-        //Манипуляция со строкой "javascript" используется для нормальной работы switch case,
+        //Манипуляция со строкой "javascript" используется для нормальной работы условных выражений,
         //когда в задаче имеется "java" и "javascript" в одном селекте.
         //Без этой манипуляции инициативу выбора всегда будет перехватывать "java"
         language = language.equals("js") ? "javascript" : language;
