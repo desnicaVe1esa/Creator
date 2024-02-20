@@ -6,8 +6,6 @@ import net.sourceforge.tess4j.TesseractException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.apache.commons.io.FileUtils;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -27,6 +25,11 @@ public class ScreenshotService {
         options.addArguments("--start-maximized");
         options.addArguments("--start-fullscreen");
         WebDriver driver = new ChromeDriver(options);
+
+        //Манипуляция со строкой "javascript" используется для нормальной работы switch case,
+        //когда в задаче имеется "java" и "javascript" в одном селекте.
+        //Без этой манипуляции инициативу выбора всегда будет перехватывать "java"
+        language = language.equals("js") ? "javascript" : language;
         driver.get(url + language);
 
         //Для получения только правой части экрана
@@ -41,13 +44,11 @@ public class ScreenshotService {
         }
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
-            //Скрин полного экрана
-//            FileUtils.copyFile(scrFile, new File("C:\\Users\\seera\\IdeaProjects\\Creator\\screen\\" + language + ".png"));
-            //Скрин правой части экрана
+            //Скрин полного экрана || правой части экрана
             BufferedImage fullImg = ImageIO.read(scrFile);
             BufferedImage rightPart = fullImg.getSubimage(rect.getWidth() / 2, 0, rect.getWidth() / 2, rect.getHeight());
             ImageIO.write(Objects.equals(language, "groovy")
-                    || Objects.equals(language, "\bjavascript\b") ?
+                    || Objects.equals(language, "javascript") ?
                     fullImg : rightPart, "png",
                     new File("C:\\Users\\seera\\IdeaProjects\\Creator\\screen\\" + language + ".png"));
         } catch (IOException e) {

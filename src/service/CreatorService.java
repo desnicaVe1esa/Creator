@@ -2,7 +2,6 @@ package service;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.io.*;
 import java.lang.reflect.Type;
 import java.net.URL;
@@ -61,7 +60,10 @@ public class CreatorService {
                 f.contains("java") ||
                         f.contains("javascript") ||
                         f.contains("groovy") ||
-                        f.contains("sql")).toList();
+                        //Манипуляция со строкой "javascript" используется для нормальной работы switch case,
+                        //когда в задаче имеется "java" и "javascript" в одном селекте.
+                        //Без этой манипуляции инициативу выбора всегда будет перехватывать "java"
+                        f.contains("sql")).map(m -> m.replace("javascript", "js")).toList();
 
         String title = data.get("slug").toString().replaceAll("-", "_");
         String rank = data.get("rank").toString();
@@ -80,26 +82,26 @@ public class CreatorService {
      */
     public void foldersFilesCodeCreator(List<String> languages, String folderPath, String screenshot, String kyu, String title) {
         File folder;
-        for (String check : languages) {
-            if (check.contains("java")) {
+        for (String language : languages) {
+            if (language.contains("java")) {
                 folder = new File(folderPath + "\\java");
                 if (!folder.exists()) {
                     folder.mkdirs();
                 }
                 preparedCode(screenshot, folder, "java", kyu, title);
-            } else if (check.contains("javascript")) {
+            } else if (language.contains("js")) {
                 folder = new File(folderPath + "\\js");
                 if (!folder.exists()) {
                     folder.mkdirs();
                 }
-                preparedCode(screenshot, folder, "javascript", kyu, title);
-            } else if (check.contains("groovy")) {
+                preparedCode(screenshot, folder, "js", kyu, title);
+            } else if (language.contains("groovy")) {
                 folder = new File(folderPath + "\\groovy");
                 if (!folder.exists()) {
                     folder.mkdirs();
                 }
                 preparedCode(screenshot, folder, "groovy", kyu, title);
-            } else if (check.contains("sql")) {
+            } else if (language.contains("sql")) {
                 folder = new File(folderPath + "\\sql");
                 if (!folder.exists()) {
                     folder.mkdirs();
@@ -114,13 +116,16 @@ public class CreatorService {
      */
     public void preparedCode(String screenshot, File folder, String language, String kyu, String title) {
         String screenshotData = ScreenshotService.preparedData(screenshot, language);
+        String patternForJs = "^[a-zA-z]*\\(\\w+\\)$";
         String[] name = screenshotData.split(" ");
         List<String> javaGroovyClass = new ArrayList<>();
-        if (!Objects.equals(language, "\bjavascript\b") && !Objects.equals(language, "sql")) {
-            for (int i = 0; i < name.length; i++) {
-                if (name[i].equals("class")) {
-                    javaGroovyClass.add(name[i + 1]);
-                }
+        String jsFunction = "";
+        for (int i = 0; i < name.length; i++) {
+            if (name[i].equals("class")) {
+                javaGroovyClass.add(name[i + 1]);
+            }
+            if (name[i].matches(patternForJs)) {
+                jsFunction = name[i];
             }
         }
         File solutionClass;
@@ -140,14 +145,15 @@ public class CreatorService {
                     e.printStackTrace();
                 }
             }
-            case "javascript" -> {
-                solutionClass = new File(folder, javaGroovyClass.get(0) + ".js");
-                testClass = new File(folder, javaGroovyClass.get(1) + "Test.js");
+            case "js" -> {
+                solutionClass = new File(folder, jsFunction.substring(0, jsFunction.indexOf('(')) + ".js");
+                testClass = new File(folder, jsFunction.substring(0, jsFunction.indexOf('(')) + "Test.js");
                 try {
                     FileWriter createSolution = new FileWriter(solutionClass);
                     FileWriter createTest = new FileWriter(testClass);
-                    createSolution.write(" {\n\t// Solution\n}");
-                    createTest.write(" {\n\t// Tests\n}");
+                    createSolution.write("function " + jsFunction + "{\n\t// Solution\n}\nmodule.exports = " +
+                            jsFunction.substring(0, jsFunction.indexOf('(')) + ";");
+                    createTest.write("{\n\t// Tests\n}");
                     createSolution.close();
                     createTest.close();
                 } catch (IOException e) {
@@ -169,7 +175,7 @@ public class CreatorService {
                 }
             }
             case "sql" -> {
-                solutionClass = new File(folder, "solution.sql");
+                solutionClass = new File(folder, title + ".sql");
                 try {
                     FileWriter createSolution = new FileWriter(solutionClass);
                     createSolution.close();
