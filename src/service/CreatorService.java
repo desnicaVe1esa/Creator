@@ -161,13 +161,18 @@ public class CreatorService {
                 }
             }
             case "groovy" -> {
-                solutionClass = new File(folder, javaGroovyClass.get(0) + ".groovy");
-                testClass = new File(folder, javaGroovyClass.get(1) + ".groovy");
+                String[] classAndTest = screenshotData.split("class");
+                String classString = classAndTest[1].substring(0, classAndTest[1].indexOf('{')).trim();
+                String testString = classAndTest[2].substring(0, classAndTest[2].indexOf('{')).trim();
+                solutionClass = new File(folder, classString + ".groovy");
+                testClass = new File(folder, testString + ".groovy");
                 try {
                     FileWriter createSolution = new FileWriter(solutionClass);
                     FileWriter createTest = new FileWriter(testClass);
-                    createSolution.write("package " + kyu + "." + title + ".groovy;\n\nclass " + javaGroovyClass.get(0) + " {\n\t// Solution\n}");
-                    createTest.write("package " + kyu + "." + title + ".groovy;\n\nclass " + javaGroovyClass.get(1) + " {\n\t// Tests\n}");
+                    createSolution.write("package " + kyu + "." + title + ".groovy;\n\nclass " + classString +
+                            " {\n\t// Solution\n}");
+                    createTest.write("package " + kyu + "." + title + ".groovy;\n\nclass " + testString +
+                            " {\n\t// Tests\n}");
                     createSolution.close();
                     createTest.close();
                 } catch (IOException e) {
