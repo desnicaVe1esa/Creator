@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fa81d2ac-6437-4956-a01e-2eb3a5d9d249" name="Changes" comment="Bug fix with groovy namings" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2cWtZsdjHSw93bHICpFfOXKNT4Z" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/seera/IdeaProjects/Creator/lib",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="CreatorRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="CreatorRunner" />
+      <module name="Creator" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CreatorRunner" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fa81d2ac-6437-4956-a01e-2eb3a5d9d249" name="Changes" comment="" />
+      <created>1708239221258</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708239221258</updated>
+      <workItem from="1708239225031" duration="4653000" />
+      <workItem from="1708358895174" duration="9876000" />
+      <workItem from="1708369097164" duration="827000" />
+      <workItem from="1708444275025" duration="5170000" />
+      <workItem from="1708449676138" duration="266000" />
+      <workItem from="1708453884669" duration="85000" />
+      <workItem from="1708530366128" duration="1943000" />
+      <workItem from="1708675262777" duration="2860000" />
+      <workItem from="1708699285498" duration="1897000" />
+    </task>
+    <task id="LOCAL-00001" summary="Dev process">
+      <created>1708239345363</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708239345363</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Dev process&#10;TODO resolve a conflict java/javascript folders and code">
+      <created>1708368556168</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1708368556168</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Release 1.4. Финальная версия">
+      <created>1708449399270</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1708449399270</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Release 1.4. Финальная версия">
+      <created>1708449504358</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1708449504358</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Release 1.4. Update comments and README.md">
+      <created>1708449936734</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1708449936734</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Bug fix with js namings and update libraries">
+      <created>1708679445512</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1708679445512</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Bug fix with groovy namings">
+      <created>1708701124294</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1708701124294</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Dev process" />
+    <MESSAGE value="Dev process&#10;TODO resolve a conflict java/javascript folders and code" />
+    <MESSAGE value="Release 1.4. Финальная версия" />
+    <MESSAGE value="Release 1.4. Update comments and README.md" />
+    <MESSAGE value="Bug fix with js namings and update libraries" />
+    <MESSAGE value="Bug fix with groovy namings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fix with groovy namings" />
+  </component>
+</project>
