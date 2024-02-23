@@ -6,6 +6,9 @@ import net.sourceforge.tess4j.TesseractException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -20,11 +23,11 @@ import java.util.concurrent.TimeUnit;
 public class ScreenshotService {
 
     public static String preparedData(String url, String language) {
-        ChromeOptions options = new ChromeOptions();
+        EdgeOptions options = new EdgeOptions();
         options.addArguments("force-device-scale-factor=1");
         options.addArguments("--start-maximized");
         options.addArguments("--start-fullscreen");
-        WebDriver driver = new ChromeDriver(options);
+        WebDriver driver = new EdgeDriver(options);
 
         //Манипуляция со строкой "javascript" используется для нормальной работы условных выражений,
         //когда в задаче имеется "java" и "javascript" в одном селекте.

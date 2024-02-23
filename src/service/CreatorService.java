@@ -116,16 +116,11 @@ public class CreatorService {
      */
     public void preparedCode(String screenshot, File folder, String language, String kyu, String title) {
         String screenshotData = ScreenshotService.preparedData(screenshot, language);
-        String patternForJs = "^[a-zA-z]*\\(\\w+\\)$";
-        String[] name = screenshotData.split(" ");
+        String[] names = screenshotData.split(" ");
         List<String> javaGroovyClass = new ArrayList<>();
-        String jsFunction = "";
-        for (int i = 0; i < name.length; i++) {
-            if (name[i].equals("class")) {
-                javaGroovyClass.add(name[i + 1]);
-            }
-            if (name[i].matches(patternForJs)) {
-                jsFunction = name[i];
+        for (int i = 0; i < names.length; i++) {
+            if (names[i].equals("class")) {
+                javaGroovyClass.add(names[i + 1]);
             }
         }
         File solutionClass;
@@ -146,13 +141,18 @@ public class CreatorService {
                 }
             }
             case "js" -> {
-                solutionClass = new File(folder, jsFunction.substring(0, jsFunction.indexOf('(')) + ".js");
-                testClass = new File(folder, jsFunction.substring(0, jsFunction.indexOf('(')) + "Test.js");
+                String[] jsParsing = screenshotData.split("function");
+                //Название функции
+                String name = jsParsing[1].substring(0, jsParsing[1].indexOf('(')).trim();
+                //Начальная труктура функции
+                String methodName = jsParsing[1].substring(0, jsParsing[1].indexOf('{')).trim();
+                solutionClass = new File(folder, name + ".js");
+                testClass = new File(folder, name + "Test.js");
                 try {
                     FileWriter createSolution = new FileWriter(solutionClass);
                     FileWriter createTest = new FileWriter(testClass);
-                    createSolution.write("function " + jsFunction + "{\n\t// Solution\n}\nmodule.exports = " +
-                            jsFunction.substring(0, jsFunction.indexOf('(')) + ";");
+                    createSolution.write("function " + methodName + "{\n\t// Solution\n}\nmodule.exports = " +
+                            name + ";");
                     createTest.write("{\n\t// Tests\n}");
                     createSolution.close();
                     createTest.close();
