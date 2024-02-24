@@ -121,8 +121,16 @@ public class CreatorService {
         switch (language) {
             case "java" -> {
                 String[] classAndTest = screenshotData.split("class");
-                String classString = classAndTest[1].substring(0, classAndTest[1].indexOf('{')).trim();
-                String testString = classAndTest[2].substring(0, classAndTest[2].indexOf('{')).trim();
+                String classString;
+                String testString;
+                //На случай неуспешного считывания текста с картинки
+                try {
+                    classString = classAndTest[1].substring(0, classAndTest[1].indexOf('{')).trim();
+                    testString = classAndTest[2].substring(0, classAndTest[2].indexOf('{')).trim();
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    classString = "Solution";
+                    testString = "SolutionTests";
+                }
                 solutionClass = new File(folder, classString + ".java");
                 testClass = new File(folder, testString + ".java");
                 try {
