@@ -11,7 +11,6 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -45,12 +44,8 @@ public class ScreenshotService {
         }
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
-            //Скрин полного экрана || правой части экрана
             BufferedImage fullImg = ImageIO.read(scrFile);
-            BufferedImage rightPart = fullImg.getSubimage(rect.getWidth() / 2, 0, rect.getWidth() / 2, rect.getHeight());
-            ImageIO.write(Objects.equals(language, "groovy")
-                    || Objects.equals(language, "javascript") ?
-                    fullImg : rightPart, "png",
+            ImageIO.write(fullImg, "png",
                     new File("C:\\Users\\seera\\IdeaProjects\\Creator\\screen\\" + language + ".png"));
         } catch (IOException e) {
             e.printStackTrace();

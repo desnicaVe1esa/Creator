@@ -116,24 +116,20 @@ public class CreatorService {
      */
     public void preparedCode(String screenshot, File folder, String language, String kyu, String title) {
         String screenshotData = ScreenshotService.preparedData(screenshot, language);
-        String[] names = screenshotData.split(" ");
-        List<String> javaGroovyClass = new ArrayList<>();
-        for (int i = 0; i < names.length; i++) {
-            if (names[i].equals("class")) {
-                javaGroovyClass.add(names[i + 1]);
-            }
-        }
         File solutionClass;
         File testClass;
         switch (language) {
             case "java" -> {
-                solutionClass = new File(folder, javaGroovyClass.get(0) + ".java");
-                testClass = new File(folder, javaGroovyClass.get(1) + ".java");
+                String[] classAndTest = screenshotData.split("class");
+                String classString = classAndTest[1].substring(0, classAndTest[1].indexOf('{')).trim();
+                String testString = classAndTest[2].substring(0, classAndTest[2].indexOf('{')).trim();
+                solutionClass = new File(folder, classString + ".java");
+                testClass = new File(folder, testString + ".java");
                 try {
                     FileWriter createSolution = new FileWriter(solutionClass);
                     FileWriter createTest = new FileWriter(testClass);
-                    createSolution.write("package " + kyu + "." + title + ".java;\n\npublic class " + javaGroovyClass.get(0) + " {\n\t// Solution\n}");
-                    createTest.write("package " + kyu + "." + title + ".java;\n\npublic class " + javaGroovyClass.get(1) + " {\n\t// Tests\n}");
+                    createSolution.write("package " + kyu + "." + title + ".java;\n\npublic class " + classString + " {\n\t// Solution\n}");
+                    createTest.write("package " + kyu + "." + title + ".java;\n\npublic class " + testString + " {\n\t// Tests\n}");
                     createSolution.close();
                     createTest.close();
                 } catch (IOException e) {
