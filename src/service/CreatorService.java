@@ -2,8 +2,6 @@ package service;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.lang.reflect.Type;
@@ -18,7 +16,9 @@ import java.util.stream.Stream;
 
 public class CreatorService {
 
+    //Зеленый цвет текста вывода в консоль
     public static final String ANSI_GREEN = "\u001B[32m";
+    //Сброс цветв текста вывода в консоль
     public static final String ANSI_RESET = "\u001B[0m";
 
     /**
@@ -160,7 +160,7 @@ public class CreatorService {
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
-                    //У библиотеки селениум свой logger SLF4J, поэтому для вывода цветных сообщений:
+                    //У библиотеки selenium свой LOGGER SLF4J, поэтому для вывода цветных сообщений:
                     System.err.println("Обнаружена ошибка библиотеки: " +
                             "при сканировании текста допущена синтаксическая ошибка в имени файла, " +
                             "имени папки или метке тома");
