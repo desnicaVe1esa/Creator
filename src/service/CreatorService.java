@@ -2,6 +2,9 @@ package service;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.*;
 import java.lang.reflect.Type;
 import java.net.URL;
@@ -127,20 +130,33 @@ public class CreatorService {
                 try {
                     classString = classAndTest[1].substring(0, classAndTest[1].indexOf('{')).trim();
                     testString = classAndTest[2].substring(0, classAndTest[2].indexOf('{')).trim();
-                } catch (ArrayIndexOutOfBoundsException e) {
+                } catch (Exception e) {
                     classString = "Solution";
                     testString = "SolutionTests";
                 }
                 solutionClass = new File(folder, classString + ".java");
                 testClass = new File(folder, testString + ".java");
+                FileWriter createSolution;
+                FileWriter createTest;
                 try {
-                    FileWriter createSolution = new FileWriter(solutionClass);
-                    FileWriter createTest = new FileWriter(testClass);
+                    createSolution = new FileWriter(solutionClass);
+                    createTest = new FileWriter(testClass);
                     createSolution.write("package " + kyu + "." + title + ".java;\n\npublic class " + classString + " {\n\t// Solution\n}");
                     createTest.write("package " + kyu + "." + title + ".java;\n\npublic class " + testString + " {\n\t// Tests\n}");
                     createSolution.close();
                     createTest.close();
-                } catch (IOException e) {
+                } catch (Exception e) {
+                    //На случай неуспешного считывания текста с картинки
+                    try {
+                        createSolution = new FileWriter(new File(folder, "Solution.java"));
+                        createTest = new FileWriter(new File(folder, "SolutionTests.java"));
+                        createSolution.write("package " + kyu + "." + title + ".java;\n\npublic class Solution {\n\t// Solution\n}");
+                        createTest.write("package " + kyu + "." + title + ".java;\n\npublic class SolutionTests {\n\t// Tests\n}");
+                        createSolution.close();
+                        createTest.close();
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
                     e.printStackTrace();
                 }
             }
