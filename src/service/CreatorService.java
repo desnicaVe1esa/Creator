@@ -18,6 +18,9 @@ import java.util.stream.Stream;
 
 public class CreatorService {
 
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_RESET = "\u001B[0m";
+
     /**
      * Запуск скрипта
      */
@@ -157,7 +160,11 @@ public class CreatorService {
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
-                    e.printStackTrace();
+                    //У библиотеки селениум свой logger SLF4J, поэтому для вывода цветных сообщений:
+                    System.err.println("Обнаружена ошибка библиотеки: " +
+                            "при сканировании текста допущена синтаксическая ошибка в имени файла, " +
+                            "имени папки или метке тома");
+                    System.out.println(ANSI_GREEN + "Соданы шаблоны с альтернативными именами" + ANSI_RESET);
                 }
             }
             case "js" -> {
