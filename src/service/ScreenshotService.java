@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -31,10 +32,6 @@ public class ScreenshotService {
         //Без этой манипуляции инициативу выбора всегда будет перехватывать "java"
         language = language.equals("js") ? "javascript" : language;
         driver.get(url + language);
-
-        //Для получения только правой части экрана
-        WebElement element = driver.findElement(By.tagName("body"));
-        Rectangle rect = element.getRect();
 
         //Пауза для прогрузки страницы
         try {
