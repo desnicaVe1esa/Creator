@@ -33,6 +33,16 @@ public class ScreenshotService {
         language = language.equals("js") ? "javascript" : language;
         driver.get(url + language);
 
+        //Для получения только правой части экрана
+//        WebElement rect = driver.findElement(By.tagName("body"));
+        //Тест получения текста только из одного элемента
+//        WebElement element = driver.findElement(By.tagName("div"))
+//                .findElement(By.id("code"))
+//                .findElement(By.className("CodeMirror-scroll"))
+//                .findElement(By.className("CodeMirror-sizer"));
+//        String s = element.getText();
+//        System.out.println(s);
+
         //Пауза для прогрузки страницы
         try {
             TimeUnit.SECONDS.sleep(3);
@@ -41,7 +51,11 @@ public class ScreenshotService {
         }
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
+            //Скрин полного экрана
+//            FileUtils.copyFile(scrFile, new File("C:\\Users\\seera\\IdeaProjects\\Creator\\screen\\" + language + ".png"));
             BufferedImage fullImg = ImageIO.read(scrFile);
+            //Скрин правой части экрана
+//            BufferedImage rightPart = fullImg.getSubimage(rect.getWidth() / 2, 0, rect.getWidth() / 2, rect.getHeight());
             ImageIO.write(fullImg, "png",
                     new File("C:\\Users\\seera\\IdeaProjects\\Creator\\screen\\" + language + ".png"));
         } catch (IOException e) {
