@@ -36,7 +36,7 @@ public class CodeTakerService {
  //        WebElement rect = driver.findElement(By.tagName("body"));
 ----------------------------------------------------------------------------------------------------------------------*/
 
-        /** Тест получения текста только из одного элемента */
+        /** Получение DOM'а */
         WebElement solutionCode = driver.findElement(By.id("code_container"));
         WebElement testsCode = driver.findElement(By.id("fixture_container"));
 
