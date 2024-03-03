@@ -71,8 +71,8 @@ public class CodeTakerService {
         Arrays.stream(solutionStrings).forEach(solution::append);
         Arrays.stream(testStrings).forEach(tests::append);
         Map<String, String> result = new HashMap<>();
-        result.put("Solution", solution.toString().replace("Solution\n 1\n", ""));
-        result.put("Sample Tests", tests.toString().replace("Sample Tests", ""));
+        result.put("Solution", solution.toString().replaceAll("Solution\n 1\n", ""));
+        result.put("Sample Tests", tests.toString().replaceAll("Sample Tests", ""));
         driver.quit();
 
 /*------------------------------------------------- Deprecated ---------------------------------------------------------
