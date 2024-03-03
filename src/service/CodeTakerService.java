@@ -78,6 +78,7 @@ public class CodeTakerService {
 /*------------------------------------------------- Deprecated ---------------------------------------------------------
         return ScreenshotService.takeTextFromPicture("C:\\Users\\seera\\IdeaProjects\\Creator\\screen\\" + language + ".png");
 ----------------------------------------------------------------------------------------------------------------------*/
+
         return result;
     }
 

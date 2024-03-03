@@ -4,6 +4,7 @@ import service.CreatorService;
 
 public class CreatorRunner {
     public static void main(String[] args) {
+
         /** Добавить в 'challenge' ID или название задачи */
         String challenge = "5d50e3914861a500121e1958";
         String urlApi = "https://www.codewars.com/api/v1/code-challenges/" + challenge;
