@@ -40,7 +40,7 @@ public class CreatorService {
             e.printStackTrace();
         }
 
-        /** Контейнер для содержимого URL */
+        /* Контейнер для содержимого URL */
         StringBuilder json = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
             String line;
@@ -57,13 +57,13 @@ public class CreatorService {
         Map<String, Object> data = gson.fromJson(json.toString(), type);
         String languages = data.get("languages").toString();
 
-        /** Контейнер для ЯП, на которых можно решить задачу (добавить в фильтр нужные ЯП)
+        /* Контейнер для ЯП, на которых можно решить задачу (добавить в фильтр нужные ЯП)
         Разработан для содания папок под ЯП */
         List<String> listLanguages = Stream.of(languages.substring(1, languages.length() - 1).split(",")).filter(f ->
                 f.contains("java") ||
                         f.contains("javascript") ||
                         f.contains("groovy") ||
-                        /** Манипуляция со строкой "javascript" используется для нормальной работы условных выражений,
+                        /* Манипуляция со строкой "javascript" используется для нормальной работы условных выражений,
                         когда в задаче имеется "java" и "javascript" в одном селекте.
                         Без этой манипуляции инициативу выбора всегда будет перехватывать "java" */
                         f.contains("sql")).map(m -> m.replace("javascript", "js")).toList();
@@ -200,7 +200,7 @@ public class CreatorService {
                 String methodName = jsParsing[1].substring(0, jsParsing[1].indexOf('{')).trim();
 ----------------------------------------------------------------------------------------------------------------------*/
 
-                /** Название функции */
+                /* Название функции */
                 String name = solution.substring(solution.indexOf("function") + 8, solution.indexOf('(')).trim();
                 solutionClass = new File(folder, name + ".js");
                 testClass = new File(folder, name + "Test.js");

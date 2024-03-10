@@ -5,8 +5,8 @@ import service.CreatorService;
 public class CreatorRunner {
     public static void main(String[] args) {
 
-        /** Добавить в 'challenge' ID или название задачи */
-        String challenge = "542c0f198e077084c0000c2e";
+        /* Добавить в 'challenge' ID или название задачи */
+        String challenge = "5436f26c4e3d6c40e5000282";
         String urlApi = "https://www.codewars.com/api/v1/code-challenges/" + challenge;
         String screenshot = "https://www.codewars.com/kata/" + challenge + "/train/";
         CreatorService creatorService = new CreatorService();

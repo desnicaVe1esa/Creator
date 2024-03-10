@@ -25,7 +25,7 @@ public class CodeTakerService {
         options.addArguments("--start-fullscreen");
         WebDriver driver = new EdgeDriver(options);
 
-        /** Манипуляция со строкой "javascript" используется для нормальной работы условных выражений,
+        /* Манипуляция со строкой "javascript" используется для нормальной работы условных выражений,
         когда в задаче имеется "java" и "javascript" в одном селекте.
         Без этой манипуляции инициативу выбора всегда будет перехватывать "java" */
         language = language.equals("js") ? "javascript" : language;
@@ -36,7 +36,7 @@ public class CodeTakerService {
  //        WebElement rect = driver.findElement(By.tagName("body"));
 ----------------------------------------------------------------------------------------------------------------------*/
 
-        /** Получение DOM'а */
+        /* Получение DOM'а */
         WebElement solutionCode = driver.findElement(By.id("code_container"));
         WebElement testsCode = driver.findElement(By.id("fixture_container"));
 
