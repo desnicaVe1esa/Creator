@@ -5,13 +5,22 @@
 - Release 1.4. Финальная версия
 - Release 1.4.1. Считывание текста со скриншота заменено на считывание текста с DOM, т.к. cо скриншота текст читался не всегда корректно
 - Release 1.4.2. Перевел сервис на Spring Boot
+- Release 1.4.3. Разделил Creator на back и front. Изменен алгоритм запуска
 <br />
 <br />
 <br />
 <img src="https://raw.githubusercontent.com/bcurran3/ChocolateyPackages/master/mylogos/deprecated.png" width="300" height="40" alt="Deprecated" />
 
 ```diff 
-# Для запуска клонировать репозиторий в свою среду разработки. Запуск происходит в классе CreatorRunner
+# 20.02.2024
+# Для запуска клонировать репозиторий в свою среду разработки. Запуск происходит в классе 
+#
+# 07.04.2024
+# Для запуска: {
+#   1.Клонировать репозиторий в свою среду разработки;
+#   2.mvn install
+#   3.mvn spring-boot:run
+#}
 ```
 <br />
 <br />
@@ -19,11 +28,34 @@
 <br />
 Для запуска: {
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;1.Клонировать репозиторий в свою среду разработки;
+&nbsp;&nbsp;&nbsp;&nbsp;
+1.Клонировать репозиторий в свою среду разработки;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;2.mvn install
+&nbsp;&nbsp;&nbsp;&nbsp;
+2.Папка "back": {
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;3.mvn spring-boot:run
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.1.mvn install
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2.2.mvn spring-boot:run
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;
+}
+<br />
+}
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;
+3.Папка "front": {
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.1.npm install
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3.2.npm run start
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;
+}
 <br />
 }
 <br />
