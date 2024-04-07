@@ -9,11 +9,11 @@
 <br />
 <br />
 <br />
-<span style="color: blue; ">
 <img src="https://raw.githubusercontent.com/bcurran3/ChocolateyPackages/master/mylogos/deprecated.png" width="300" height="40" alt="Deprecated">
 <br />
-Для запуска клонировать репозиторий в свою среду разработки. Запуск происходит в классе CreatorRunner
-</span>
+```diff
++ Для запуска клонировать репозиторий в свою среду разработки. Запуск происходит в классе CreatorRunner
+```
 <br />
 <br />
 <br />
