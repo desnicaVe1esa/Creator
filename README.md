@@ -10,8 +10,8 @@
 <br />
 <br />
 <img src="https://raw.githubusercontent.com/bcurran3/ChocolateyPackages/master/mylogos/deprecated.png" width="300" height="40" alt="Deprecated">
-```
-Для запуска клонировать репозиторий в свою среду разработки. Запуск происходит в классе CreatorRunner
+```diff
+# Для запуска клонировать репозиторий в свою среду разработки. Запуск происходит в классе CreatorRunner
 ```
 <br />
 <br />
