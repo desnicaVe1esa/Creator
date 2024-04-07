@@ -8,7 +8,6 @@
 - Release 1.4.3. Разделил Creator на back и front. Изменен алгоритм запуска
 <br />
 <br />
-<br />
 <img src="https://raw.githubusercontent.com/bcurran3/ChocolateyPackages/master/mylogos/deprecated.png" width="300" height="40" alt="Deprecated" />
 
 ```diff 
@@ -22,8 +21,6 @@
 #   3.mvn spring-boot:run
 #}
 ```
-<br />
-<br />
 <br />
 <br />
 Для запуска: {
