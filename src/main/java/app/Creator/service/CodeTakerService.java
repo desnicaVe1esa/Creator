@@ -1,8 +1,10 @@
-package service;
+package app.Creator.service;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.springframework.stereotype.Service;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,10 +17,14 @@ public class ScreenshotService {
 ----------------------------------------------------------------------------------------------------------------------*/
 
 /** Получение кода со страницы */
-
+@Service
 public class CodeTakerService {
 
-    public static Map<String, String> preparedData(String url, String language) {
+    public CodeTakerService() {
+
+    }
+
+    public Map<String, String> preparedData(String url, String language) {
         EdgeOptions options = new EdgeOptions();
         options.addArguments("force-device-scale-factor=1");
         options.addArguments("--start-maximized");

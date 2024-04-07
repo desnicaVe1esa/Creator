@@ -1,7 +1,9 @@
-package service;
+package app.Creator.service;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.lang.reflect.Type;
@@ -10,10 +12,21 @@ import java.net.URLConnection;
 import java.util.*;
 import java.util.stream.Stream;
 
-/** Создает папки с названием задачи, папки с названиями ЯП, на которых ее можно решить, код-заготовку для решения и
-    код-заготовку для тестов */
+/**
+ * Создает папки с названием задачи, папки с названиями ЯП, на которых ее можно решить, код-заготовку для решения и
+ * код-заготовку для тестов
+ */
 
+@Service
 public class CreatorService {
+
+    @Autowired
+    private CodeTakerService codeTakerService;
+
+    public CreatorService() {
+
+    }
+
 
 /*------------------------------------------------- Deprecated ---------------------------------------------------------
     Зеленый цвет текста вывода в консоль
@@ -22,12 +35,21 @@ public class CreatorService {
     public static final String ANSI_RESET = "\u001B[0m";
 ----------------------------------------------------------------------------------------------------------------------*/
 
-    /** Запуск скрипта */
-    public void start(String urlApi, String screenshot) {
+
+    /**
+     * Запуск скрипта
+     */
+    private void start() {
+        /* Добавить в 'challenge' ID или название задачи */
+        String challenge = "5858fd43c1d5b4399f000138";
+        String urlApi = "https://www.codewars.com/api/v1/code-challenges/" + challenge;
+        String screenshot = "https://www.codewars.com/kata/" + challenge + "/train/";
         parser(urlApi, screenshot);
     }
 
-    /** Парсер страницы с задачей */
+    /**
+     * Парсер страницы с задачей
+     */
     public void parser(String urlApi, String screenshot) {
         URL tasksUrl;
         URLConnection con;
@@ -78,7 +100,9 @@ public class CreatorService {
     }
 
 
-    /** Подготовка папок для решения задачи */
+    /**
+     * Подготовка папок для решения задачи
+     */
     public void foldersFilesCodeCreator(List<String> languages, String folderPath, String screenshot, String kyu, String title) {
         File folder;
         for (String language : languages) {
@@ -110,14 +134,16 @@ public class CreatorService {
         }
     }
 
-    /** Подготовка кода и тестов для решения задачи */
+    /**
+     * Подготовка кода и тестов для решения задачи
+     */
     public void preparedCode(String screenshot, File folder, String language, String kyu, String title) {
 
 /*------------------------------------------------- Deprecated ---------------------------------------------------------
         String screenshotData = CodeTakerService.preparedData(screenshot, language);
 ----------------------------------------------------------------------------------------------------------------------*/
 
-        Map<String, String> data = CodeTakerService.preparedData(screenshot, language);
+        Map<String, String> data = codeTakerService.preparedData(screenshot, language);
         String solution = data.get("Solution");
         String tests = data.get("Sample Tests");
         File solutionClass;
