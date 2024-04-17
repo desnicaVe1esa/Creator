@@ -6,7 +6,7 @@
 - Release 1.4.1. Считывание текста со скриншота заменено на считывание текста с DOM, т.к. cо скриншота текст читался не всегда корректно
 - Release 1.4.2. Перевел сервис на Spring Boot
 - Release 1.4.3. Разделил Creator на back и front. Изменен алгоритм запуска
-- Release 1.4.4. Прикрутил начальный фронт. Запуск происходит из фронта после ввода ID-задачи в input-поле и нажатия 'Enter'
+- Release 1.4.4. Отработка сервиса происходит из фронта после ввода ID-задачи в input-поле и нажатия 'Enter'
 <br />
 <br />
 <img src="https://raw.githubusercontent.com/bcurran3/ChocolateyPackages/master/mylogos/deprecated.png" width="300" height="40" alt="Deprecated" />
