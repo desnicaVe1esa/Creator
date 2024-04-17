@@ -10,7 +10,6 @@ import java.lang.reflect.Type;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.*;
-import java.util.stream.Stream;
 
 /**
  * Создает папки с названием задачи, папки с названиями ЯП, на которых ее можно решить, код-заготовку для решения и
@@ -33,7 +32,7 @@ public class CreatorService {
     }
 
 
-/*------------------------------------------------- Deprecated ---------------------------------------------------------
+/*--------------------------------------------------- Deprecated -------------------------------------------------------
     Зеленый цвет текста вывода в консоль
     public static final String ANSI_GREEN = "\u001B[32m";
     Сброс цветв текста вывода в консоль
@@ -44,16 +43,16 @@ public class CreatorService {
     /**
      * Запуск скрипта
      */
-    public void start(String id) {
+    public void start(String id, List<String> languages) {
         String urlApi = "https://www.codewars.com/api/v1/code-challenges/" + id;
         String screenshot = "https://www.codewars.com/kata/" + id + "/train/";
-        parser(urlApi, screenshot);
+        parser(urlApi, screenshot, languages);
     }
 
     /**
      * Парсер страницы с задачей
      */
-    private void parser(String urlApi, String screenshot) {
+    private void parser(String urlApi, String screenshot, List<String> languages) {
         URL tasksUrl;
         URLConnection con;
         InputStream is = null;
@@ -80,18 +79,20 @@ public class CreatorService {
         Type type = new TypeToken<Map<String, Object>>() {
         }.getType();
         Map<String, Object> data = gson.fromJson(json.toString(), type);
-        String languages = data.get("languages").toString();
 
-        /* Контейнер для ЯП, на которых можно решить задачу (добавить в фильтр нужные ЯП)
-        Разработан для содания папок под ЯП */
+/*--------------------------------------------------- Deprecated -------------------------------------------------------
+        String languages = data.get("languages").toString();
+        Контейнер для ЯП, на которых можно решить задачу (добавить в фильтр нужные ЯП)
+        Разработан для содания папок под ЯП
         List<String> listLanguages = Stream.of(languages.substring(1, languages.length() - 1).split(",")).filter(f ->
                 f.contains("java") ||
                         f.contains("javascript") ||
                         f.contains("groovy") ||
-                        /* Манипуляция со строкой "javascript" используется для нормальной работы условных выражений,
+                        Манипуляция со строкой "javascript" используется для нормальной работы условных выражений,
                         когда в задаче имеется "java" и "javascript" в одном селекте.
-                        Без этой манипуляции инициативу выбора всегда будет перехватывать "java" */
+                        Без этой манипуляции инициативу выбора всегда будет перехватывать "java"
                         f.contains("sql")).map(m -> m.replace("javascript", "js")).toList();
+----------------------------------------------------------------------------------------------------------------------*/
 
         String title = data.get("slug").toString().replaceAll("-", "_");
         String rank = data.get("rank").toString();
@@ -99,7 +100,7 @@ public class CreatorService {
         String[] arrForReverse = kyuFromRank.split(" ");
         String kyu = arrForReverse[1] + "_" + arrForReverse[0];
         String PATH = "C:\\Users\\seera\\IdeaProjects\\Codewars\\src\\" + kyu + "\\" + title;
-        foldersFilesCodeCreator(listLanguages, PATH, screenshot, kyu, title);
+        foldersFilesCodeCreator(languages, PATH, screenshot, kyu, title);
     }
 
 
@@ -109,12 +110,13 @@ public class CreatorService {
     private void foldersFilesCodeCreator(List<String> languages, String folderPath, String screenshot, String kyu, String title) {
         File folder;
         for (String language : languages) {
-            if (language.contains("java")) {
-                folder = new File(folderPath + "\\java");
+//             if (language.contains("java")) { Deprecated
+                folder = new File(folderPath + "\\" + language);
                 if (!folder.exists()) {
                     folder.mkdirs();
                 }
-                preparedCode(screenshot, folder, "java", kyu, title);
+                preparedCode(screenshot, folder, language, kyu, title);
+/* ------------------------------------------------ Deprecated ---------------------------------------------------------
             } else if (language.contains("js")) {
                 folder = new File(folderPath + "\\js");
                 if (!folder.exists()) {
@@ -134,6 +136,7 @@ public class CreatorService {
                 }
                 preparedCode(screenshot, folder, "sql", kyu, title);
             }
+----------------------------------------------------------------------------------------------------------------------*/
         }
     }
 
@@ -151,12 +154,12 @@ public class CreatorService {
         String tests = data.get("Sample Tests");
         File solutionClass;
         File testClass;
+        String dotClass = "." + language;
         switch (language) {
             case "java", "groovy" -> {
 
-                String dotClass = language.equals("java") ? ".java" : ".groovy";
-
 /*------------------------------------------------- Deprecated ---------------------------------------------------------
+                String dotClass = language.equals("java") ? ".java" : ".groovy";
                 String[] screenshotData = data.split("class");
                 String classString;
                 String testString;
@@ -219,7 +222,7 @@ public class CreatorService {
                     e.printStackTrace();
                 }
             }
-            case "js" -> {
+            case "javascript" -> {
 
 /*------------------------------------------------- Deprecated ---------------------------------------------------------
                 String[] jsParsing = screenshotData.split("function");

@@ -1,8 +1,11 @@
 package app.back.controller;
 
+import app.back.model.TaskAndLanguages;
 import app.back.service.CreatorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
 
 @CrossOrigin(origins = "*", maxAge = 4800)
 @RestController
@@ -17,7 +20,9 @@ public class CreatorServiceController {
     }
 
     @PostMapping("/createTemplates")
-    public void createTemplates(@RequestBody String id) {
-        creatorService.start(id);
+    public void createTemplates(@RequestBody TaskAndLanguages requestBody) {
+        String id = requestBody.getTaskId();
+        List<String> languages = requestBody.getLanguagesForSolution();
+        creatorService.start(id, languages);
     }
 }
