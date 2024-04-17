@@ -1,9 +1,9 @@
 package app.back;
 
-import app.back.service.CreatorService;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+
 
 @SpringBootApplication
 public class CreatorApplication {
@@ -12,8 +12,10 @@ public class CreatorApplication {
 		SpringApplication.run(CreatorApplication.class, args);
 	}
 
+	/* -- Used before the creation of the front --
 	@Bean(initMethod = "start")
 	public CreatorService creatorStart() {
 		return new CreatorService();
 	}
+	-------------------------------------------- */
 }

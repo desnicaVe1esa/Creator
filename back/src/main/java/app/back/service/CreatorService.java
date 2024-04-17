@@ -20,8 +20,13 @@ import java.util.stream.Stream;
 @Service
 public class CreatorService {
 
-    @Autowired
+
     private CodeTakerService codeTakerService;
+
+    @Autowired
+    public void setCodeTakerService(CodeTakerService codeTakerService) {
+        this.codeTakerService = codeTakerService;
+    }
 
     public CreatorService() {
 
@@ -39,18 +44,16 @@ public class CreatorService {
     /**
      * Запуск скрипта
      */
-    private void start() {
-        /* Добавить в 'challenge' ID или название задачи */
-        String challenge = "5858fd43c1d5b4399f000138";
-        String urlApi = "https://www.codewars.com/api/v1/code-challenges/" + challenge;
-        String screenshot = "https://www.codewars.com/kata/" + challenge + "/train/";
+    public void start(String id) {
+        String urlApi = "https://www.codewars.com/api/v1/code-challenges/" + id;
+        String screenshot = "https://www.codewars.com/kata/" + id + "/train/";
         parser(urlApi, screenshot);
     }
 
     /**
      * Парсер страницы с задачей
      */
-    public void parser(String urlApi, String screenshot) {
+    private void parser(String urlApi, String screenshot) {
         URL tasksUrl;
         URLConnection con;
         InputStream is = null;
@@ -103,7 +106,7 @@ public class CreatorService {
     /**
      * Подготовка папок для решения задачи
      */
-    public void foldersFilesCodeCreator(List<String> languages, String folderPath, String screenshot, String kyu, String title) {
+    private void foldersFilesCodeCreator(List<String> languages, String folderPath, String screenshot, String kyu, String title) {
         File folder;
         for (String language : languages) {
             if (language.contains("java")) {
@@ -137,7 +140,7 @@ public class CreatorService {
     /**
      * Подготовка кода и тестов для решения задачи
      */
-    public void preparedCode(String screenshot, File folder, String language, String kyu, String title) {
+    private void preparedCode(String screenshot, File folder, String language, String kyu, String title) {
 
 /*------------------------------------------------- Deprecated ---------------------------------------------------------
         String screenshotData = CodeTakerService.preparedData(screenshot, language);
