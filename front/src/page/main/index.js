@@ -3,6 +3,7 @@ import {Button, Col, ConfigProvider, Input, Row, Select} from "antd";
 import {Typography} from 'antd';
 import {TinyColor} from '@ctrl/tinycolor';
 import axios from 'axios';
+import review from '../../gif/review.gif'
 
 const {Title} = Typography;
 
@@ -22,8 +23,12 @@ const Main = () => {
     const options = [];
 
     const onClickLoadLanguages = async () => {
-        const response = await axios.get(`https://www.codewars.com/api/v1/code-challenges/${taskId}`)
-        setLanguages(response.data.languages)
+        try {
+            const response = await axios.get(`https://www.codewars.com/api/v1/code-challenges/${taskId}`)
+            setLanguages(response.data.languages)
+        } catch (error) {
+            console.warn('Ошибка при получении данных:', error);
+        }
     }
 
     /* Данная проверка ставится потому, что когда fetchData вызывается впервые, languages всё ещё пустой массив,
@@ -54,93 +59,100 @@ const Main = () => {
 
     return (
         <div>
+            <Title style={{color: 'white'}}
+                   level={2}>
+                Добро пожаловать в Creator - сервис создания заготовок для решения задач
+                с&ensp;<a href="https://www.codewars.com">www.codewars.com</a>
+            </Title>
             <Row>
-                <Title style={{color: 'white'}}
-                       level={2}>
-                    Добро пожаловать в Creator - сервис создания заготовок для решения задач
-                    с&ensp;<a href="https://www.codewars.com">www.codewars.com</a>
-                </Title>
-            </Row>
-            <Row>
-                <Title style={{color: 'white'}}
-                       level={3}>
-                    Алгоритм действий:
-                </Title>
-            </Row>
-            <Row>
-                <Col>
-                    <text style={{color: 'white'}}>1.&ensp;</text>
+                <Col span={12}>
+                    {/** Создание шаблона **/}
+                    <Row>
+                        <Title style={{color: 'white'}}
+                               level={3}>
+                            Алгоритм действий:
+                        </Title>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <text style={{color: 'white'}}>1.&ensp;</text>
+                        </Col>
+                        <Col style={{paddingBottom: '1%'}}>
+                            <Input placeholder="Скопируйте ID задачи"
+                                   type="text" value={taskId}
+                                   onChange={(e) => setTaskId(e.target.value)}
+                                   style={{width: 200}}>
+                            </Input>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <text style={{color: 'white'}}>2.&ensp;</text>
+                        </Col>
+                        <Col style={{paddingBottom: '1%'}}>
+                            <ConfigProvider
+                                theme={{
+                                    components: {
+                                        Button: {
+                                            colorPrimary: `linear-gradient(116deg,  ${gradient.join(', ')})`,
+                                            colorPrimaryHover: `linear-gradient(116deg, ${getHoverColors(gradient).join(', ')})`,
+                                            colorPrimaryActive: `linear-gradient(116deg, ${getActiveColors(gradient).join(', ')})`,
+                                            lineWidth: 0,
+                                        },
+                                    },
+                                }}
+                            >
+                                <Button style={{color: 'white'}}
+                                        type="primary"
+                                        onClick={onClickLoadLanguages}>
+                                    Нажмите, чтобы загрузить дуступные языки программирования для решения задачи
+                                </Button>
+                            </ConfigProvider>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <text style={{color: 'white'}}>3.&ensp;</text>
+                        </Col>
+                        <Col style={{paddingBottom: '1%'}}>
+                            <Select
+                                mode="multiple"
+                                placeholder="Выберите языки программирования, на которых будите решать задачу"
+                                onChange={(e) => setLanguagesForSolution(e)}
+                                style={{width: 510}}
+                                options={options}
+                            />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <text style={{color: 'white'}}>4.&ensp;</text>
+                        </Col>
+                        <Col style={{paddingBottom: '1%'}}>
+                            <ConfigProvider
+                                theme={{
+                                    components: {
+                                        Button: {
+                                            colorPrimary: `linear-gradient(116deg,  ${gradient.join(', ')})`,
+                                            colorPrimaryHover: `linear-gradient(116deg, ${getHoverColors(gradient).join(', ')})`,
+                                            colorPrimaryActive: `linear-gradient(116deg, ${getActiveColors(gradient).join(', ')})`,
+                                            lineWidth: 0,
+                                        },
+                                    },
+                                }}
+                            >
+                                <Button style={{color: 'white'}}
+                                        type="primary"
+                                        onClick={onClickCreateTemplates}>
+                                    Создать заготовки
+                                </Button>
+                            </ConfigProvider>
+                        </Col>
+                    </Row>
                 </Col>
-                <Col style={{paddingBottom: '1%'}}>
-                    <Input placeholder="Скопируйте ID задачи"
-                           type="text" value={taskId}
-                           onChange={(e) => setTaskId(e.target.value)}
-                           style={{width: 200}}>
-                    </Input>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <text style={{color: 'white'}}>2.&ensp;</text>
-                </Col>
-                <Col style={{paddingBottom: '1%'}}>
-                    <ConfigProvider
-                        theme={{
-                            components: {
-                                Button: {
-                                    colorPrimary: `linear-gradient(116deg,  ${gradient.join(', ')})`,
-                                    colorPrimaryHover: `linear-gradient(116deg, ${getHoverColors(gradient).join(', ')})`,
-                                    colorPrimaryActive: `linear-gradient(116deg, ${getActiveColors(gradient).join(', ')})`,
-                                    lineWidth: 0,
-                                },
-                            },
-                        }}
-                    >
-                        <Button style={{color: 'white'}}
-                                type="primary"
-                                onClick={onClickLoadLanguages}>
-                            Нажмите, чтобы загрузить дуступные языки программирования для решения задачи
-                        </Button>
-                    </ConfigProvider>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <text style={{color: 'white'}}>3.&ensp;</text>
-                </Col>
-                <Col style={{paddingBottom: '1%'}}>
-                    <Select
-                        mode="multiple"
-                        placeholder="Выберите языки программирования, на которых будите решать задачу"
-                        onChange={(e) => setLanguagesForSolution(e)}
-                        style={{width: 510}}
-                        options={options}
-                    />
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <text style={{color: 'white'}}>4.&ensp;</text>
-                </Col>
-                <Col style={{paddingBottom: '1%'}}>
-                    <ConfigProvider
-                        theme={{
-                            components: {
-                                Button: {
-                                    colorPrimary: `linear-gradient(116deg,  ${gradient.join(', ')})`,
-                                    colorPrimaryHover: `linear-gradient(116deg, ${getHoverColors(gradient).join(', ')})`,
-                                    colorPrimaryActive: `linear-gradient(116deg, ${getActiveColors(gradient).join(', ')})`,
-                                    lineWidth: 0,
-                                },
-                            },
-                        }}
-                    >
-                        <Button style={{color: 'white'}}
-                                type="primary"
-                                onClick={onClickCreateTemplates}>
-                            Создать заготовки
-                        </Button>
-                    </ConfigProvider>
+                <Col span={12}>
+                    {/** Видео обзор **/}
+                    <img src={review} alt={'review'} height={'250px'} width={'500'}/>
                 </Col>
             </Row>
         </div>)
