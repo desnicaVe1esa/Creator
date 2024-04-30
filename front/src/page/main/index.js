@@ -3,7 +3,6 @@ import {Button, Col, ConfigProvider, Input, Row, Select} from "antd";
 import {Typography} from 'antd';
 import {TinyColor} from '@ctrl/tinycolor';
 import axios from 'axios';
-import review from '../../gif/review.gif'
 
 const {Title} = Typography;
 
@@ -58,12 +57,21 @@ const Main = () => {
     }
 
     return (
-        <div>
-            <Title style={{color: 'white'}}
-                   level={2}>
-                Добро пожаловать в Creator - сервис создания заготовок для решения задач
-                с&ensp;<a href="https://www.codewars.com">www.codewars.com</a>
-            </Title>
+        <div style={{
+            backgroundImage: `url(${process.env.PUBLIC_URL + 'img/background.jpg'})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            width: '100vw',
+            height: '100vh'
+        }}>
+            <Row style={{display: 'flex', justifyContent: 'center'}}>
+                <Title style={{color: 'white'}}
+                       level={2}>
+                    Добро пожаловать в Creator - сервис создания заготовок для решения задач
+                    с&ensp;<a href="https://www.codewars.com">www.codewars.com</a>
+                </Title>
+            </Row>
             <Row>
                 <Col span={12}>
                     {/** Создание шаблона **/}
@@ -150,9 +158,13 @@ const Main = () => {
                         </Col>
                     </Row>
                 </Col>
-                <Col span={12}>
-                    {/** Видео обзор **/}
-                    <img src={review} alt={'review'} height={'250px'} width={'500'}/>
+                <Col span={12} style={{display: 'flex', justifyContent: 'center'}}>
+                    {/** Обзор **/}
+                    <img src={"/gif/review.gif"}
+                         alt={'review'}
+                         height={'250px'}
+                         width={'400'}
+                    />
                 </Col>
             </Row>
         </div>)

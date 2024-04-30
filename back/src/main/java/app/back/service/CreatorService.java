@@ -190,8 +190,8 @@ public class CreatorService {
                     createTest = new FileWriter(testClass);
 
 /*------------------------------------------------- Deprecated ---------------------------------------------------------
-                    createSolution.write("package " + kyu + "." + title + ".java;\n\npublic class " + classString + " {\n\t// Solution\n}");
-                    createTest.write("package " + kyu + "." + title + ".java;\n\npublic class " + testString + " {\n\t// Tests\n}");
+                createSolution.write("package " + kyu + "." + title + ".java;\n\npublic class " + classString + " {\n\t// Solution\n}");
+                createTest.write("package " + kyu + "." + title + ".java;\n\npublic class " + testString + " {\n\t// Tests\n}");
 ----------------------------------------------------------------------------------------------------------------------*/
 
                     createSolution.write("package " + kyu + "." + title + dotClass + ";\n\n" + solution);
@@ -201,22 +201,22 @@ public class CreatorService {
                 } catch (Exception e) {
 
 /*------------------------------------------------- Deprecated ---------------------------------------------------------
-                    На случай неуспешного считывания текста с картинки
-                    try {
-                        createSolution = new FileWriter(new File(folder, "Solution.java"));
-                        createTest = new FileWriter(new File(folder, "SolutionTests.java"));
-                        createSolution.write("package " + kyu + "." + title + ".java;\n\npublic class Solution {\n\t// Solution\n}");
-                        createTest.write("package " + kyu + "." + title + ".java;\n\npublic class SolutionTests {\n\t// Tests\n}");
-                        createSolution.close();
-                        createTest.close();
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                    У библиотеки selenium свой LOGGER SLF4J, поэтому для вывода цветных сообщений:
-                    System.err.println("Обнаружена ошибка библиотеки: " +
-                            "при сканировании текста допущена синтаксическая ошибка в имени файла, " +
-                            "имени папки или метке тома");
-                    System.out.println(ANSI_GREEN + "Соданы шаблоны с альтернативными именами" + ANSI_RESET);
+                На случай неуспешного считывания текста с картинки
+                try {
+                    createSolution = new FileWriter(new File(folder, "Solution.java"));
+                    createTest = new FileWriter(new File(folder, "SolutionTests.java"));
+                    createSolution.write("package " + kyu + "." + title + ".java;\n\npublic class Solution {\n\t// Solution\n}");
+                    createTest.write("package " + kyu + "." + title + ".java;\n\npublic class SolutionTests {\n\t// Tests\n}");
+                    createSolution.close();
+                    createTest.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                У библиотеки selenium свой LOGGER SLF4J, поэтому для вывода цветных сообщений:
+                System.err.println("Обнаружена ошибка библиотеки: " +
+                        "при сканировании текста допущена синтаксическая ошибка в имени файла, " +
+                        "имени папки или метке тома");
+                System.out.println(ANSI_GREEN + "Соданы шаблоны с альтернативными именами" + ANSI_RESET);
 ----------------------------------------------------------------------------------------------------------------------*/
 
                     e.printStackTrace();
