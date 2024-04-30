@@ -19,7 +19,6 @@ import java.util.*;
 @Service
 public class CreatorService {
 
-
     private CodeTakerService codeTakerService;
 
     @Autowired
@@ -99,8 +98,9 @@ public class CreatorService {
         String kyuFromRank = rank.substring(rank.indexOf("name=") + 5, rank.indexOf(", color"));
         String[] arrForReverse = kyuFromRank.split(" ");
         String kyu = arrForReverse[1] + "_" + arrForReverse[0];
-        String PATH = "C:\\Users\\seera\\IdeaProjects\\Codewars\\src\\" + kyu + "\\" + title;
-        foldersFilesCodeCreator(languages, PATH, screenshot, kyu, title);
+        /* Указать свой путь к папке с задачами */
+        String folderPath = "C:\\Users\\seera\\IdeaProjects\\Codewars\\src\\" + kyu + "\\" + title;
+        foldersFilesCodeCreator(languages, folderPath, screenshot, kyu, title);
     }
 
 
