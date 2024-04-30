@@ -58,7 +58,7 @@ const Main = () => {
 
     return (
         <div style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL + 'img/background.jpg'})`,
+            backgroundImage: `url(${process.env.PUBLIC_URL + 'img/background_main.jpg'})`,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
@@ -158,7 +158,7 @@ const Main = () => {
                         </Col>
                     </Row>
                 </Col>
-                <Col span={12} style={{display: 'flex', justifyContent: 'center'}}>
+                <Col span={12} style={{display: 'flex', justifyContent: 'right'}}>
                     {/** Обзор **/}
                     <img src={"/gif/review.gif"}
                          alt={'review'}
@@ -166,6 +166,9 @@ const Main = () => {
                          width={'400'}
                     />
                 </Col>
+            </Row>
+            <Row style={{display: 'flex', paddingTop: '20%', paddingRight: '3%', justifyContent: 'center'}}>
+                <a href="/theory">Немного теории и полезной информации</a>
             </Row>
         </div>)
 }
