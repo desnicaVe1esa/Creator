@@ -110,8 +110,8 @@ public class CreatorService {
     private void foldersFilesCodeCreator(List<String> languages, String folderPath, String screenshot, String kyu, String title) {
         File folder;
         for (String language : languages) {
-//             if (language.contains("java")) { Deprecated
-                folder = new File(folderPath + "\\" + language);
+//             if (language.contains("java")) { // Deprecated
+                folder = new File(folderPath + "\\" + (language.equals("javascript") ? "js" : language));
                 if (!folder.exists()) {
                     folder.mkdirs();
                 }
