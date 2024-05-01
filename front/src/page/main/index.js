@@ -167,7 +167,7 @@ const Main = () => {
                     />
                 </Col>
             </Row>
-            <Row style={{display: 'flex', paddingTop: '18%', paddingRight: '3%', justifyContent: 'center'}}>
+            <Row style={{display: 'flex', paddingTop: '19%', paddingRight: '3%', justifyContent: 'center'}}>
                 <a href="/theory">Немного теории и полезной информации</a>
             </Row>
         </div>)
