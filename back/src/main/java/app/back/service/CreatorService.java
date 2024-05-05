@@ -2,6 +2,8 @@ package app.back.service;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,11 @@ import java.util.*;
 public class CreatorService {
 
     private CodeTakerService codeTakerService;
+
+    private String className;
+    private String testName;
+
+    private Logger logger = LoggerFactory.getLogger(CreatorService.class);
 
     @Autowired
     public void setCodeTakerService(CodeTakerService codeTakerService) {
@@ -111,11 +118,11 @@ public class CreatorService {
         File folder;
         for (String language : languages) {
 //             if (language.contains("java")) { // Deprecated
-                folder = new File(folderPath + "\\" + (language.equals("javascript") ? "js" : language));
-                if (!folder.exists()) {
-                    folder.mkdirs();
-                }
-                preparedCode(screenshot, folder, language, kyu, title);
+            folder = new File(folderPath + "\\" + (language.equals("javascript") ? "js" : language));
+            if (!folder.exists()) {
+                folder.mkdirs();
+            }
+            preparedCode(screenshot, folder, language, kyu, title);
 /* ------------------------------------------------ Deprecated ---------------------------------------------------------
             } else if (language.contains("js")) {
                 folder = new File(folderPath + "\\js");
@@ -172,9 +179,13 @@ public class CreatorService {
                     testString = "SolutionTests";
                 }
 ----------------------------------------------------------------------------------------------------------------------*/
-
-                String className = solution.substring(solution.indexOf("class") + 5, solution.indexOf("{")).trim();
-                String testName = tests.substring(tests.indexOf("class") + 5, tests.indexOf("{")).trim();
+                try {
+                    className = solution.substring(solution.indexOf("class") + 5, solution.indexOf("{")).trim();
+                    testName = tests.substring(tests.indexOf("class") + 5, tests.indexOf("{")).trim();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    logger.error("Некорректное считывание данных. Создайте шаблоны самостояельно");
+                }
 
 /*------------------------------------------------- Deprecated ---------------------------------------------------------
                 solutionClass = new File(folder, classString + ".java");
