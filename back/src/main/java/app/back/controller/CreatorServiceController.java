@@ -9,7 +9,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 4800)
 @RestController
-@RequestMapping("/")
+@RequestMapping("/creator/")
 public class CreatorServiceController {
 
     private CreatorService creatorService;
