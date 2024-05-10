@@ -3,6 +3,7 @@ package app.back.model;
 import java.util.List;
 
 public class TaskAndLanguages {
+
     private String taskId;
     private List<String> languagesForSolution;
 

@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
-import {
-    DesktopOutlined,
-    FileOutlined,
-    PieChartOutlined,
-    TeamOutlined,
-    UserOutlined,
-} from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
-const { Header, Content, Footer, Sider } = Layout;
+import React from 'react';
+import {HomeOutlined} from '@ant-design/icons';
+import {Menu} from 'antd';
+import HomePractice from "./component/homePractice";
+import {Route, Routes, useNavigate} from "react-router-dom";
+
+
 function getItem(label, key, icon, children) {
     return {
         key,
@@ -16,26 +13,18 @@ function getItem(label, key, icon, children) {
         label,
     };
 }
+
 const items = [
-    getItem('Option 1', '1', <PieChartOutlined />),
-    getItem('Option 2', '2', <DesktopOutlined />),
-    getItem('User', 'sub1', <UserOutlined />, [
-        getItem('Tom', '3'),
-        getItem('Bill', '4'),
-        getItem('Alex', '5'),
-    ]),
-    getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
-    getItem('Files', '9', <FileOutlined />),
+    getItem('Домашняя практика', 'homePractice', <HomeOutlined/>),
 ];
 
 const Theory = () => {
-    const [collapsed, setCollapsed] = useState(false);
-    const {
-        token: { colorBgContainer, borderRadiusLG },
-    } = theme.useToken();
+    const navigate = useNavigate();
 
     return (
         <div style={{
+            display: 'flex',
+            flexDirection: 'row',
             backgroundImage: `url(${process.env.PUBLIC_URL + 'img/background_theory.jpg'})`,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
@@ -43,37 +32,59 @@ const Theory = () => {
             width: '100vw',
             height: '100vh'
         }}>
-            <Layout
-                style={{
-                    minHeight: '100vh',
-                }}
-            >
-                <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
-                    <div className="demo-logo-vertical" />
-                    <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
-                </Sider>
-                <Layout style={{
-                    backgroundImage: `url(${process.env.PUBLIC_URL + 'img/background_theory.jpg'})`,
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
-                    width: '100vw',
-                    height: '100vh'
-                }}>
-                    <Content>
-                    </Content>
-                    <div
-                        style={{
-                            textAlign: 'right',
-                            paddingRight: '10%'
-                        }}
-                    >
-                        <a href="/">Вернуться на главную страницу</a>
-                    </div>
-                </Layout>
-            </Layout>
+            <Menu
+                // onClick={({key}) => navigate(key)}
+                theme="dark"
+                items={items}
+            ></Menu>
+            <Content/>
         </div>
     )
 }
 
+function Content() {
+    return (
+        <div>
+            <Routes>
+                <Route path="homePractice" element={<div>Hello</div>}/>
+            </Routes>
+        </div>
+    )
+}
+
+
+// <Layout
+//     style={{
+//         minHeight: '100vh',
+//     }}
+// >
+//     <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+//         <div className="demo-logo-vertical"/>
+//
+//     </Sider>
+//     <Layout style={{
+//         backgroundImage: `url(${process.env.PUBLIC_URL + 'img/background_theory.jpg'})`,
+//         backgroundPosition: 'center',
+//         backgroundSize: 'cover',
+//         backgroundRepeat: 'no-repeat',
+//         width: '100vw',
+//         height: '100vh'
+//     }}>
+//         <Content>
+//             <Routes>
+//                 <Route path="homePractice" element={<HomePractice/>}/>
+//             </Routes>
+//         </Content>
+
+//     </Layout>
+// </Layout>
+
+// <div
+//     style={{
+//         textAlign: 'right',
+//         paddingRight: '10%'
+//     }}
+// >
+//     <a href="/">Вернуться на главную страницу</a>
+// </div>
 export default Theory;
