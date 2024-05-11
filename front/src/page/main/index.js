@@ -83,7 +83,7 @@ const Main = () => {
                     </Row>
                     <Row>
                         <Col>
-                            <text style={{color: 'white'}}>1.&ensp;</text>
+                            <p style={{color: 'white'}}>1.&ensp;</p>
                         </Col>
                         <Col style={{paddingBottom: '1%'}}>
                             <Input placeholder="Скопируйте ID задачи"
@@ -95,7 +95,7 @@ const Main = () => {
                     </Row>
                     <Row>
                         <Col>
-                            <text style={{color: 'white'}}>2.&ensp;</text>
+                            <p style={{color: 'white'}}>2.&ensp;</p>
                         </Col>
                         <Col style={{paddingBottom: '1%'}}>
                             <ConfigProvider
@@ -120,7 +120,7 @@ const Main = () => {
                     </Row>
                     <Row>
                         <Col>
-                            <text style={{color: 'white'}}>3.&ensp;</text>
+                            <p style={{color: 'white'}}>3.&ensp;</p>
                         </Col>
                         <Col style={{paddingBottom: '1%'}}>
                             <Select
@@ -134,7 +134,7 @@ const Main = () => {
                     </Row>
                     <Row>
                         <Col>
-                            <text style={{color: 'white'}}>4.&ensp;</text>
+                            <p style={{color: 'white'}}>4.&ensp;</p>
                         </Col>
                         <Col style={{paddingBottom: '1%'}}>
                             <ConfigProvider

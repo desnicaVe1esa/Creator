@@ -1,7 +1,10 @@
+import {Card} from "antd";
+import React from "react";
+
 const HomePractice = () => {
 
     return (
-        <div>Hello World!</div>
+            <Card>Content</Card>
     )
 }
 
