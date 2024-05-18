@@ -22,10 +22,11 @@ const Theory = () => {
 
     const [key, setKey] = useState('');
     const [homePractice, setHomePractice] = useState([]);
-    console.log(homePractice)
 
     const onMenuClick = (e) => {
-        if (e.key === 'main') { return window.location.replace('http://localhost:3000/'); }
+        if (e.key === 'main') {
+            return window.location.replace('http://localhost:3000/');
+        }
         if (e.key === key) {
             setKey('');
         } else {
@@ -61,7 +62,9 @@ const Theory = () => {
                 theme="dark"
                 items={items}/>
             <Content>
-                {key === 'homePractice' && <HomePractice params={homePractice}/>}
+                {key === 'homePractice' &&
+                    <HomePractice params={homePractice}/>
+                }
             </Content>
         </div>
     )

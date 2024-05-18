@@ -3,9 +3,13 @@ import React from "react";
 
 const HomePractice = ({params}) => {
 
+    const carriageReturn = (string) => {
+        return string.replace('1n', '<p>').replace('2n', '</p>');
+    }
+
     return (
         params.map((item, index) => {
-            return <Card key={`${index}_card`}>{item.publication_date}: {item.info}</Card>
+            return <div key={`${index}_key`} style={{padding: '0.1%'}}><Card>{item.publication_date}: {carriageReturn(item.info)}</Card></div>
         })
     )
 }
