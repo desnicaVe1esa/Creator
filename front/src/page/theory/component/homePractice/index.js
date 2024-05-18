@@ -1,10 +1,12 @@
 import {Card} from "antd";
 import React from "react";
 
-const HomePractice = () => {
+const HomePractice = ({params}) => {
 
     return (
-            <Card>Content</Card>
+        params.map((item, index) => {
+            return <Card key={`${index}_card`}>{item.publication_date}: {item.info}</Card>
+        })
     )
 }
 

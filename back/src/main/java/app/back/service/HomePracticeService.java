@@ -1,8 +1,9 @@
 package app.back.service;
 
+import java.util.List;
 import java.util.Map;
 
 public interface HomePracticeService {
 
-    Map<String, String> getInfo();
+    List<Map<String, Object>> getInfo();
 }

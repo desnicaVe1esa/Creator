@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@CrossOrigin(origins = "*", maxAge = 4800)
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/creator/")
 public class CreatorServiceController {

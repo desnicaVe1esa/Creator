@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {HomeOutlined, LogoutOutlined} from '@ant-design/icons';
 import {Menu} from "antd";
 import {Content} from "antd/es/layout/layout";
@@ -21,6 +21,8 @@ const items = [
 const Theory = () => {
 
     const [key, setKey] = useState('');
+    const [homePractice, setHomePractice] = useState([]);
+    console.log(homePractice)
 
     const onMenuClick = (e) => {
         if (e.key === 'main') { return window.location.replace('http://localhost:3000/'); }
@@ -30,6 +32,17 @@ const Theory = () => {
             setKey(e.key);
         }
     }
+
+    useEffect(() => {
+        fetch('http://localhost:8080/theory/homePractice')
+            .then((res) => res.json())
+            .then((data) => {
+                setHomePractice(data);
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
 
     return (
         <div style={{
@@ -48,7 +61,7 @@ const Theory = () => {
                 theme="dark"
                 items={items}/>
             <Content>
-                {key === 'homePractice' && <HomePractice/>}
+                {key === 'homePractice' && <HomePractice params={homePractice}/>}
             </Content>
         </div>
     )
