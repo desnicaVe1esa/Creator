@@ -6,5 +6,5 @@ create table if not exists home_practice (
 
 insert into home_practice (publication_date, info)
 values (
-    now(), 'Команда развертывания Postgres в Docker: docker run --name <name> -p <external_port>:<interior_port> -e POSTGRES_PASSWORD=<password> -e POSTGRES_USER=<name> -e POSTGRES_DB=<db_name> -d postgres'
+    now(), 'Команда развертывания Postgres в Docker:\ndocker run --name <name> -p <external_port>:<interior_port> -e POSTGRES_PASSWORD=<password> -e POSTGRES_USER=<name> -e POSTGRES_DB=<db_name> -d postgres'
 );
