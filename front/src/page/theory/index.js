@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {HomeOutlined, LogoutOutlined} from '@ant-design/icons';
+import {HomeOutlined, LogoutOutlined, LaptopOutlined} from '@ant-design/icons';
 import {Menu} from "antd";
 import {Content} from "antd/es/layout/layout";
-import HomePractice from "./component/homePractice";
+import ContentComponent from "./component/contentComponent";
 
 function getItem(label, key, icon, children) {
     return {
@@ -15,6 +15,7 @@ function getItem(label, key, icon, children) {
 
 const items = [
     getItem('Домашняя практика', 'homePractice', <HomeOutlined/>),
+    getItem('Работа', 'work', <LaptopOutlined />),
     getItem('На главную', 'main', <LogoutOutlined/>)
 ];
 
@@ -22,6 +23,7 @@ const Theory = () => {
 
     const [key, setKey] = useState('');
     const [homePractice, setHomePractice] = useState([]);
+    const [work, setWork] = useState([]);
 
     const onMenuClick = (e) => {
         if (e.key === 'main') {
@@ -45,6 +47,17 @@ const Theory = () => {
             });
     }, []);
 
+    useEffect(() => {
+        fetch('http://localhost:8080/theory/work')
+            .then((res) => res.json())
+            .then((data) => {
+                setWork(data);
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
+
     return (
         <div style={{
             display: 'flex',
@@ -54,7 +67,8 @@ const Theory = () => {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             width: '100vw',
-            height: '100vh'
+            height: '100vh',
+
         }}
         >
             <Menu
@@ -63,7 +77,10 @@ const Theory = () => {
                 items={items}/>
             <Content>
                 {key === 'homePractice' &&
-                    <HomePractice params={homePractice}/>
+                    <ContentComponent params={homePractice}/>
+                }
+                {key === 'work' &&
+                    <ContentComponent params={work}/>
                 }
             </Content>
         </div>

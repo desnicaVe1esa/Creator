@@ -1,7 +1,7 @@
 import {Card} from "antd";
 import React from "react";
 
-const HomePractice = ({params}) => {
+const ContentComponent = ({params}) => {
 
     const carriageReturn = (string) => {
         let preparedResult = string.split('\\n');
@@ -23,4 +23,4 @@ const HomePractice = ({params}) => {
     )
 }
 
-export default HomePractice;
+export default ContentComponent;
