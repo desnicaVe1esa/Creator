@@ -63,7 +63,8 @@ const Main = () => {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             width: '100vw',
-            height: '100vh'
+            height: '100vh',
+            overflowY: 'auto'
         }}>
             <Row style={{display: 'flex', justifyContent: 'center'}}>
                 <Title style={{color: 'white'}}
