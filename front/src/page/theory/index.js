@@ -68,7 +68,6 @@ const Theory = () => {
             backgroundRepeat: 'no-repeat',
             width: '100vw',
             height: '100vh',
-
         }}
         >
             <Menu
