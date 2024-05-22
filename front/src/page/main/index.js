@@ -64,8 +64,7 @@ const Main = () => {
             backgroundRepeat: 'no-repeat',
             width: '100vw',
             height: '100vh',
-            overflowY: 'auto',
-            overflowX: 'none'
+            overflowY: 'auto'
         }}>
             <Row style={{display: 'flex', justifyContent: 'center'}}>
                 <Title style={{color: 'white'}}

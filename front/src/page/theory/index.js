@@ -15,7 +15,7 @@ function getItem(label, key, icon, children) {
 
 const items = [
     getItem('Домашняя практика', 'homePractice', <HomeOutlined/>),
-    getItem('Работа', 'work', <LaptopOutlined />),
+    getItem('Работа', 'work', <LaptopOutlined/>),
     getItem('На главную', 'main', <LogoutOutlined/>)
 ];
 
@@ -69,24 +69,20 @@ const Theory = () => {
             width: '100vw',
             height: '100vh',
             overflowY: 'auto',
+            overflowX: 'hidden'
         }}
         >
-            <Menu
-                onClick={(key) => onMenuClick(key)}
-                theme="dark"
-                items={items}/>
-            <Content>
+            <Menu style={{height: '100vh', position: 'fixed'}}
+                  onClick={(key) => onMenuClick(key)}
+                  theme="dark"
+                  items={items}/>
+            <Content style={{marginLeft: '13%'}}>
                 {key === 'homePractice' &&
                     <ContentComponent params={homePractice}/>
                 }
                 {key === 'work' &&
                     <ContentComponent params={work}/>
                 }
-                <div>test</div>
-                <div>test</div>
-                <div>test</div>
-                <div>test</div>
-                <div>test</div>
             </Content>
         </div>
     )
