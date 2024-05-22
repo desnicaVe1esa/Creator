@@ -68,6 +68,7 @@ const Theory = () => {
             backgroundRepeat: 'no-repeat',
             width: '100vw',
             height: '100vh',
+            overflowY: 'auto',
         }}
         >
             <Menu
@@ -81,6 +82,11 @@ const Theory = () => {
                 {key === 'work' &&
                     <ContentComponent params={work}/>
                 }
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
+                <div>test</div>
             </Content>
         </div>
     )

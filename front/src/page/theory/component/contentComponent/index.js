@@ -1,5 +1,6 @@
 import {Card} from "antd";
 import React from "react";
+import styles from "./index.css"
 
 const ContentComponent = ({params}) => {
 
@@ -11,15 +12,16 @@ const ContentComponent = ({params}) => {
     }
 
     return (
-        params.map((item, index) => {
-            return <div key={`${index}_key`}
-                    style={{
-                        padding: '0.1%'
-                    }}>
+        <header className={styles}>
+            {params.map((item, index) => {
+                return <div key={`${index}_key`}
+                            style={{
+                                padding: '0.1%'
+                            }}>
                     <Card>{item.publication_date}: <span>{carriageReturn(item.info)}</span></Card>
                 </div>
-
-        })
+            })}
+        </header>
     )
 }
 
