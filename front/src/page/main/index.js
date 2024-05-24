@@ -114,7 +114,7 @@ const Main = () => {
                                 <Button style={{color: 'white'}}
                                         type="primary"
                                         onClick={onClickLoadLanguages}>
-                                    Нажмите, чтобы загрузить дуступные языки программирования для решения задачи
+                                    Загрузить доступные языки програмирования
                                 </Button>
                             </ConfigProvider>
                         </Col>
