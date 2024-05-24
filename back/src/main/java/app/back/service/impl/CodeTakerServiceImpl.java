@@ -99,7 +99,7 @@ public class CodeTakerServiceImpl implements CodeTakerService {
 
         //Путь к файлу eng.traineddata для чтения английского текста
         //Ссылка для скачивания скана нужного языка: https://github.com/tesseract-ocr/tessdata/blob/main/eng.traineddata
-        readTextFromImage.setDatapath("C:\\Users\\seera\\IdeaProjects\\back\\src\\util");
+        readTextFromImage.setDatapath("C:\\Users\\seera\\IdeaProjects\\Creator\\back\\src\\main\\resources\\util");
         try {
             return readTextFromImage.doOCR(image);
         } catch (TesseractException e) {
