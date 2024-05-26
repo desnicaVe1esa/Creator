@@ -27,7 +27,7 @@ const Theory = () => {
 
     const onMenuClick = (e) => {
         if (e.key === 'main') {
-            return window.location.replace('http://localhost:3000/');
+            return window.location.replace('http://localhost:3000/main');
         }
         if (e.key === key) {
             setKey('');
