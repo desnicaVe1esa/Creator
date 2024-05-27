@@ -4,6 +4,7 @@ import Main from "./page/main";
 import Theory from "./page/theory";
 
 function App() {
+
     return (
         <>
             <Routes>
