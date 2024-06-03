@@ -76,7 +76,7 @@ const Theory = () => {
                   onClick={(key) => onMenuClick(key)}
                   theme="dark"
                   items={items}/>
-            <Content style={{marginLeft: '12%'}}>
+            <Content style={{marginLeft: '13%'}}>
                 {key === 'homePractice' &&
                     <ContentComponent params={homePractice}/>
                 }
