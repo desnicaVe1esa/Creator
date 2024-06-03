@@ -1,5 +1,5 @@
 insert into work (publication_date, info)
-values ('2024-06-03', 'Maven. Если возникают конфликты при получении зависимостей, то нужно выполнить:\n
+values ('2024-06-03', 'Maven. Если возникают конфликты с безопасностью при получении зависимостей, то поможет команда:\n
                        mvn clean install -DskipTests -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.ignore.validity.dates=true -U, где:\n
                        - mvn - сокращение от "maven", которое указывает на использование Apache Maven для выполнения команды\n
                        - clean - удаляет все временные файлы, созданные в процессе сборки проекта\n
