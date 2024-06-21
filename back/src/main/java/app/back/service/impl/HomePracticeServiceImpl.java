@@ -21,7 +21,7 @@ public class HomePracticeServiceImpl implements HomePracticeService {
 
     @Override
     public  List<Map<String, Object>> getInfo() {
-        String query = "select * from home_practice";
+        String query = "select * from home_practice order by publication_date";
         return namedParameterJdbcTemplate.queryForList(query, new HashMap<>());
     }
 }

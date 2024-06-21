@@ -21,7 +21,7 @@ public class WorkServiceImpl implements WorkService {
 
     @Override
     public List<Map<String, Object>> getInfo() {
-        String query = "select * from work";
+        String query = "select * from work order by publication_date";
         return namedParameterJdbcTemplate.queryForList(query, new HashMap<>());
     }
 }
