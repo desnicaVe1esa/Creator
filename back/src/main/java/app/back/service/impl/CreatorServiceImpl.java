@@ -273,7 +273,7 @@ public class CreatorServiceImpl implements CreatorService {
                     e.printStackTrace();
                 }
             }
-            case "sql", "c", "cpp", "csharp", "python", "shell" -> {
+            default -> {
                 format =
                         language.equals("sql") ? ".sql" :
                         language.equals("c") ? ".c" :
