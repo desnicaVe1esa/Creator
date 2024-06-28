@@ -274,7 +274,12 @@ public class CreatorServiceImpl implements CreatorService {
                 }
             }
             case "sql", "c", "cpp", "csharp", "python", "shell" -> {
-                format = language.equals("sql") ? ".sql" : ".file";
+                format =
+                        language.equals("sql") ? ".sql" :
+                        language.equals("c") ? ".c" :
+                        language.equals("cpp") ? ".cpp" :
+                        language.equals("csharp") ? ".cs" :
+                        language.equals("python") ? ".py" : ".shell";
                 solutionClass = new File(folder, title + format);
                 testClass = new File(folder, title + "_test" + format);
                 try {
