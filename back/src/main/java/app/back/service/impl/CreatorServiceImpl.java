@@ -164,6 +164,7 @@ public class CreatorServiceImpl implements CreatorService {
         File solutionClass;
         File testClass;
         String dotClass = "." + language;
+        String format = "";
         switch (language) {
             case "java", "groovy" -> {
 
@@ -272,9 +273,10 @@ public class CreatorServiceImpl implements CreatorService {
                     e.printStackTrace();
                 }
             }
-            case "sql" -> {
-                solutionClass = new File(folder, title + ".sql");
-                testClass = new File(folder, title + "_test.sql");
+            case "sql", "c", "cpp", "csharp", "python" -> {
+                format = language.equals("sql") ? ".sql" : ".file";
+                solutionClass = new File(folder, title + format);
+                testClass = new File(folder, title + "_test" + format);
                 try {
                     FileWriter createSolution = new FileWriter(solutionClass);
                     FileWriter createTest = new FileWriter(testClass);
