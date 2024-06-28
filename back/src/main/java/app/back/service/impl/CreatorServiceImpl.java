@@ -273,7 +273,7 @@ public class CreatorServiceImpl implements CreatorService {
                     e.printStackTrace();
                 }
             }
-            case "sql", "c", "cpp", "csharp", "python" -> {
+            case "sql", "c", "cpp", "csharp", "python", "shell" -> {
                 format = language.equals("sql") ? ".sql" : ".file";
                 solutionClass = new File(folder, title + format);
                 testClass = new File(folder, title + "_test" + format);
