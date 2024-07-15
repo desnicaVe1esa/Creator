@@ -279,7 +279,8 @@ public class CreatorServiceImpl implements CreatorService {
                         language.equals("c") ? ".c" :
                         language.equals("cpp") ? ".cpp" :
                         language.equals("csharp") ? ".cs" :
-                        language.equals("python") ? ".py" : ".shell";
+                        language.equals("python") ? ".py" :
+                        language.equals("powershell") ? ".ps1" : ".shell";
                 solutionClass = new File(folder, title + format);
                 testClass = new File(folder, title + "_test" + format);
                 try {
