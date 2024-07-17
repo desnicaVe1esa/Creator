@@ -11,6 +11,7 @@ header>div:nth-child(8) {animation: ani 0.5s forwards 3.5s;}
 header>div:nth-child(9) {animation: ani 0.5s forwards 4s;}
 header>div:nth-child(10) {animation: ani 0.5s forwards 4.5s;}
 header>div:nth-child(11) {animation: ani 0.5s forwards 5s;}
+header>div:nth-child(12) {animation: ani 0.5s forwards 5.5s;}
 
 @keyframes ani {
     10% {transform: translateX(-150%);}
