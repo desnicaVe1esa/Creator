@@ -12,13 +12,14 @@ public class ContextEventListener {
     private String containerName;
 
     /**
-     * Остановка Docker-контейнера с БД после остановки приложения
+     * Остановка Docker-контейнера с БД после остановки приложения и закрытие приложения Docker Desktop
      */
     @EventListener(ContextClosedEvent.class)
     public void stopDbContainer() {
         Runtime process = Runtime.getRuntime();
         try {
             process.exec("docker stop " + containerName);
+            process.exec("taskkill /IM \"Docker Desktop.exe\" /f");
         } catch (Exception e) {
             e.printStackTrace();
         }
