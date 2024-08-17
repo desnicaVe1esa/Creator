@@ -39,10 +39,11 @@ const Theory = () => {
             setKey(e.key);
         }
 
-        if (e.key !== 'patterns') {
-            setBackGroundImage(`url(${process.env.PUBLIC_URL + 'img/background_theory.jpg'})`)
-        } else {
+        if (e.key === 'patterns') {
             setBackGroundImage('')
+        } else {
+            setBackGroundImage(`url(${process.env.PUBLIC_URL + 'img/background_theory.jpg'})`)
+
         }
     }
 
@@ -67,6 +68,10 @@ const Theory = () => {
                 console.log(err.message);
             });
     }, []);
+
+    useEffect(() => {
+        setBackGroundImage(`url(${process.env.PUBLIC_URL + 'img/background_theory.jpg'})`)
+    }, [])
 
     return (
         <div style={{
