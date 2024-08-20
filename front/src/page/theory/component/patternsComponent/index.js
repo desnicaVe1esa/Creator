@@ -166,6 +166,38 @@ const PatternsComponent = () => {
             <br/>
             <br/>
 
+            {/** Легковес */}
+            <Row style={{display: 'flex', justifyContent: 'center'}}>
+                <Col>
+                    <img src={'patterns/flyweight/name.jpg'} alt={'name'}></img>
+                </Col>
+                <Col>
+                    <img width={600} height={350} src={'patterns/flyweight/flyweight.jpg'} alt={'flyweight'}></img>
+                    <img width={400} height={350} src={'patterns/flyweight/example.jpg'} alt={'example'}></img>
+                </Col>
+            </Row>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            {/** Заместитель */}
+            <Row style={{display: 'flex', justifyContent: 'center'}}>
+                <Col>
+                    <img src={'patterns/proxy/name.jpg'} alt={'name'}></img>
+                </Col>
+                <Col>
+                    <img width={450} height={350} src={'patterns/proxy/proxy.jpg'} alt={'proxy'}></img>
+                    <img width={450} height={350} src={'patterns/proxy/example.jpg'} alt={'example'}></img>
+                </Col>
+            </Row>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
         </div>
     )
 }
