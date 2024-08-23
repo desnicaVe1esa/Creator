@@ -124,8 +124,8 @@ const PatternsComponent = () => {
                     <img src={'patterns/composite/name.jpg'} alt={'name'}></img>
                 </Col>
                 <Col>
-                    <img width={500} height={400} src={'patterns/composite/composite.jpg'} alt={'composite'}></img>
-                    <img width={500} height={400} src={'patterns/composite/example.jpg'} alt={'example'}></img>
+                    <img width={600} height={500} src={'patterns/composite/composite.jpg'} alt={'composite'}></img>
+                    <img width={600} height={500} src={'patterns/composite/example.jpg'} alt={'example'}></img>
                 </Col>
             </Row>
 
@@ -140,8 +140,8 @@ const PatternsComponent = () => {
                     <img src={'patterns/decorator/name.jpg'} alt={'name'}></img>
                 </Col>
                 <Col>
-                    <img width={500} height={400} src={'patterns/decorator/decorator.jpg'} alt={'decorator'}></img>
-                    <img width={500} height={400} src={'patterns/decorator/example.jpg'} alt={'example'}></img>
+                    <img width={600} height={500} src={'patterns/decorator/decorator.jpg'} alt={'decorator'}></img>
+                    <img width={600} height={500} src={'patterns/decorator/example.jpg'} alt={'example'}></img>
                 </Col>
             </Row>
 
@@ -172,8 +172,8 @@ const PatternsComponent = () => {
                     <img src={'patterns/flyweight/name.jpg'} alt={'name'}></img>
                 </Col>
                 <Col>
-                    <img width={600} height={350} src={'patterns/flyweight/flyweight.jpg'} alt={'flyweight'}></img>
-                    <img width={400} height={350} src={'patterns/flyweight/example.jpg'} alt={'example'}></img>
+                    <img width={700} height={450} src={'patterns/flyweight/flyweight.jpg'} alt={'flyweight'}></img>
+                    <img width={600} height={500} src={'patterns/flyweight/example.jpg'} alt={'example'}></img>
                 </Col>
             </Row>
 
@@ -188,8 +188,8 @@ const PatternsComponent = () => {
                     <img src={'patterns/proxy/name.jpg'} alt={'name'}></img>
                 </Col>
                 <Col>
-                    <img width={450} height={350} src={'patterns/proxy/proxy.jpg'} alt={'proxy'}></img>
-                    <img width={450} height={350} src={'patterns/proxy/example.jpg'} alt={'example'}></img>
+                    <img width={600} height={450} src={'patterns/proxy/proxy.jpg'} alt={'proxy'}></img>
+                    <img width={600} height={450} src={'patterns/proxy/example.jpg'} alt={'example'}></img>
                 </Col>
             </Row>
 
@@ -204,8 +204,8 @@ const PatternsComponent = () => {
                     <img src={'patterns/chain_of_responsibility/name.jpg'} alt={'name'}></img>
                 </Col>
                 <Col>
-                    <img width={500} height={500} src={'patterns/chain_of_responsibility/chain_of_responsibility.jpg'} alt={'chain_of_responsibility'}></img>
-                    <img width={500} height={500} src={'patterns/chain_of_responsibility/example.jpg'} alt={'example'}></img>
+                    <img width={600} height={550} src={'patterns/chain_of_responsibility/chain_of_responsibility.jpg'} alt={'chain_of_responsibility'}></img>
+                    <img width={600} height={550} src={'patterns/chain_of_responsibility/example.jpg'} alt={'example'}></img>
                 </Col>
             </Row>
 
@@ -221,7 +221,7 @@ const PatternsComponent = () => {
                 </Col>
                 <Col>
                     <img width={650} height={500} src={'patterns/command/command.jpg'} alt={'command'}></img>
-                    <img width={500} height={500} src={'patterns/command/example.jpg'} alt={'example'}></img>
+                    <img width={650} height={550} src={'patterns/command/example.jpg'} alt={'example'}></img>
                 </Col>
             </Row>
 
