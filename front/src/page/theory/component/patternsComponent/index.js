@@ -198,6 +198,38 @@ const PatternsComponent = () => {
             <br/>
             <br/>
 
+            {/** Цепочка обязанностей */}
+            <Row style={{display: 'flex', justifyContent: 'center'}}>
+                <Col>
+                    <img src={'patterns/chain_of_responsibility/name.jpg'} alt={'name'}></img>
+                </Col>
+                <Col>
+                    <img width={500} height={500} src={'patterns/chain_of_responsibility/chain_of_responsibility.jpg'} alt={'chain_of_responsibility'}></img>
+                    <img width={500} height={500} src={'patterns/chain_of_responsibility/example.jpg'} alt={'example'}></img>
+                </Col>
+            </Row>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            {/** Команда */}
+            <Row style={{display: 'flex', justifyContent: 'center'}}>
+                <Col>
+                    <img src={'patterns/command/name.jpg'} alt={'name'}></img>
+                </Col>
+                <Col>
+                    <img width={650} height={500} src={'patterns/command/command.jpg'} alt={'command'}></img>
+                    <img width={500} height={500} src={'patterns/command/example.jpg'} alt={'example'}></img>
+                </Col>
+            </Row>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
         </div>
     )
 }
