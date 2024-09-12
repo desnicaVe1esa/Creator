@@ -172,7 +172,7 @@ const PatternsComponent = () => {
                     <img src={'patterns/flyweight/name.jpg'} alt={'name'}></img>
                 </Col>
                 <Col>
-                    <img width={700} height={450} src={'patterns/flyweight/flyweight.jpg'} alt={'flyweight'}></img>
+                    <img width={650} height={400} src={'patterns/flyweight/flyweight.jpg'} alt={'flyweight'}></img>
                     <img width={600} height={500} src={'patterns/flyweight/example.jpg'} alt={'example'}></img>
                 </Col>
             </Row>
@@ -220,8 +220,8 @@ const PatternsComponent = () => {
                     <img src={'patterns/command/name.jpg'} alt={'name'}></img>
                 </Col>
                 <Col>
-                    <img width={650} height={500} src={'patterns/command/command.jpg'} alt={'command'}></img>
-                    <img width={650} height={550} src={'patterns/command/example.jpg'} alt={'example'}></img>
+                    <img width={635} height={500} src={'patterns/command/command.jpg'} alt={'command'}></img>
+                    <img width={635} height={550} src={'patterns/command/example.jpg'} alt={'example'}></img>
                 </Col>
             </Row>
 
@@ -229,6 +229,17 @@ const PatternsComponent = () => {
             <br/>
             <br/>
             <br/>
+
+            {/** Итератор */}
+            <Row style={{display: 'flex', justifyContent: 'center'}}>
+                <Col>
+                    <img src={'patterns/iterator/name.jpg'} alt={'name'}></img>
+                </Col>
+                <Col>
+                    <img width={450} height={350} src={'patterns/iterator/iterator.jpg'} alt={'iterator'}></img>
+                    <img width={450} height={460} src={'patterns/iterator/example.jpg'} alt={'example'}></img>
+                </Col>
+            </Row>
 
         </div>
     )
