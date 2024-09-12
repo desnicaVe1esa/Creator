@@ -220,7 +220,7 @@ const PatternsComponent = () => {
                     <img src={'patterns/command/name.jpg'} alt={'name'}></img>
                 </Col>
                 <Col>
-                    <img width={635} height={500} src={'patterns/command/command.jpg'} alt={'command'}></img>
+                    <img width={635} height={450} src={'patterns/command/command.jpg'} alt={'command'}></img>
                     <img width={635} height={550} src={'patterns/command/example.jpg'} alt={'example'}></img>
                 </Col>
             </Row>
@@ -235,9 +235,66 @@ const PatternsComponent = () => {
                 <Col>
                     <img src={'patterns/iterator/name.jpg'} alt={'name'}></img>
                 </Col>
+            </Row>
+            <Row justify="space-evenly">
                 <Col>
                     <img width={450} height={350} src={'patterns/iterator/iterator.jpg'} alt={'iterator'}></img>
-                    <img width={450} height={460} src={'patterns/iterator/example.jpg'} alt={'example'}></img>
+                </Col>
+                <Col>
+                    <img width={450} height={450} src={'patterns/iterator/example.jpg'} alt={'example'}></img>
+                </Col>
+            </Row>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            {/** Посредник */}
+            <Row style={{display: 'flex', justifyContent: 'center'}}>
+                <Col>
+                    <img src={'patterns/mediator/name.jpg'} alt={'name'}></img>
+                </Col>
+            </Row>
+            <Row justify="space-evenly">
+                <Col>
+                    <img width={450} height={350} src={'patterns/mediator/mediator.jpg'} alt={'mediator'}></img>
+                </Col>
+                <Col>
+                    <img width={450} height={350} src={'patterns/mediator/example.jpg'} alt={'example'}></img>
+                </Col>
+            </Row>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            {/** Снимок */}
+            <Row style={{display: 'flex', justifyContent: 'center'}}>
+                <Col>
+                    <img src={'patterns/memento/name.jpg'} alt={'name'}></img>
+                </Col>
+            </Row>
+            <Row justify="space-evenly">
+                <Col>
+                    <img width={350} height={300} src={'patterns/memento/memento1.jpg'} alt={'memento1'}></img>
+                </Col>
+                <Col>
+                    <img width={350} height={300} src={'patterns/memento/memento2.jpg'} alt={'memento2'}></img>
+                </Col>
+                <Col>
+                    <img width={350} height={300} src={'patterns/memento/memento3.jpg'} alt={'memento3'}></img>
+                </Col>
+            </Row>
+            <br/>
+            <br/>
+            <Row justify="space-evenly">
+                <Col>
+                    <img width={350} height={300} src={'patterns/memento/example1.jpg'} alt={'example1'}></img>
+                </Col>
+                <Col>
+                    <img width={350} height={100} src={'patterns/memento/example2.jpg'} alt={'example2'}></img>
                 </Col>
             </Row>
 
