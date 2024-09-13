@@ -298,6 +298,46 @@ const PatternsComponent = () => {
                 </Col>
             </Row>
 
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            {/** Наблюдатель */}
+            <Row style={{display: 'flex', justifyContent: 'center'}}>
+                <Col>
+                    <img src={'patterns/observer/name.jpg'} alt={'name'}></img>
+                </Col>
+            </Row>
+            <Row justify="space-evenly">
+                <Col>
+                    <img width={550} height={350} src={'patterns/observer/observer.jpg'} alt={'observer'}></img>
+                </Col>
+                <Col>
+                    <img width={400} height={350} src={'patterns/observer/example.jpg'} alt={'example'}></img>
+                </Col>
+            </Row>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            {/** Состояние */}
+            <Row style={{display: 'flex', justifyContent: 'center'}}>
+                <Col>
+                    <img src={'patterns/state/name.jpg'} alt={'name'}></img>
+                </Col>
+            </Row>
+            <Row justify="space-evenly">
+                <Col>
+                    <img width={400} height={350} src={'patterns/state/state.jpg'} alt={'state'}></img>
+                </Col>
+                <Col>
+                    <img width={400} height={300} src={'patterns/state/example.jpg'} alt={'example'}></img>
+                </Col>
+            </Row>
+
         </div>
     )
 }
