@@ -390,6 +390,46 @@ const PatternsComponent = () => {
                 </Col>
             </Row>
 
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            {/** Стратегия */}
+            <Row style={{display: 'flex', justifyContent: 'center'}}>
+                <Col>
+                    <img src={'patterns/strategy/name.jpg'} alt={'name'}></img>
+                </Col>
+            </Row>
+            <Row justify="space-evenly">
+                <Col>
+                    <img width={400} height={350} src={'patterns/strategy/strategy.jpg'} alt={'strategy'}></img>
+                </Col>
+                <Col>
+                    <img width={450} height={300} src={'patterns/strategy/example.jpg'} alt={'example'}></img>
+                </Col>
+            </Row>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            {/** Шаблонный метод */}
+            <Row style={{display: 'flex', justifyContent: 'center'}}>
+                <Col>
+                    <img src={'patterns/template_method/name.jpg'} alt={'name'}></img>
+                </Col>
+            </Row>
+            <Row justify="space-evenly">
+                <Col>
+                    <img width={400} height={350} src={'patterns/template_method/template_method.jpg'} alt={'template_method'}></img>
+                </Col>
+                <Col>
+                    <img width={450} height={350} src={'patterns/template_method/example.jpg'} alt={'example'}></img>
+                </Col>
+            </Row>
+
         </div>
     )
 }
