@@ -430,6 +430,26 @@ const PatternsComponent = () => {
                 </Col>
             </Row>
 
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            {/** Посетитель */}
+            <Row style={{display: 'flex', justifyContent: 'center'}}>
+                <Col>
+                    <img src={'patterns/visitor/name.jpg'} alt={'name'}></img>
+                </Col>
+            </Row>
+            <Row justify="space-evenly">
+                <Col>
+                    <img width={450} height={450} src={'patterns/visitor/visitor.jpg'} alt={'visitor'}></img>
+                </Col>
+                <Col>
+                    <img width={450} height={450} src={'patterns/visitor/example.jpg'} alt={'example'}></img>
+                </Col>
+            </Row>
+
         </div>
     )
 }
